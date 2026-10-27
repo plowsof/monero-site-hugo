@@ -13,9 +13,12 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            // previews: <PR>.beta.monerodevs.org for monero-project/monero-site,
+            // n<PR>.beta.monerodevs.org for forks that deploy their own
+            const host = context.repo.owner === 'monero-project' ? `${context.issue.number}` : `n${context.issue.number}`
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `|What|Link|\n|:---:|---|\n|🕵️‍♂️ Review|[Files changed](https://github.com/${context.repo.owner}/${context.repo.repo}/pull/${context.issue.number}/files)|\n|🌐 Deploy|[Preview #${context.issue.number}](https://${context.issue.number}.beta.monerodevs.org)|`
+              body: `|What|Link|\n|:---:|---|\n|🕵️‍♂️ Review|[Files changed](https://github.com/${context.repo.owner}/${context.repo.repo}/pull/${context.issue.number}/files)|\n|🌐 Deploy|[Preview #${context.issue.number}](https://${host}.beta.monerodevs.org)|`
             })
