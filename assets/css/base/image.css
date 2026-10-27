@@ -1,0 +1,14 @@
+/* Responsive images from the ui/image partial (formerly injected by Astro's image service) */
+:where([data-image]) {
+  object-fit: var(--fit);
+  object-position: var(--pos);
+  height: auto;
+}
+
+:where([data-image="full-width"]) {
+  width: 100%;
+}
+
+:where([data-image="constrained"]) {
+  max-width: 100%;
+}

@@ -1,0 +1,19 @@
+/* Styles for layouts/_partials/ui/card.html */
+.card[data-c-card] {
+  background: var(--card-color);
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+  &[data-border] {
+    border: 1px solid var(--border-color);
+  }
+  &[data-transparent] {
+    background: transparent;
+  }
+  &[data-hover] {
+    transition: background 0.15s ease;
+    &[data-c-card]:hover,
+    &[data-c-card]:focus-visible {
+      background: var(--card-hover-color);
+    }
+  }
+}

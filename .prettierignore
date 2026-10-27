@@ -1,5 +1,5 @@
 dist
-.astro
+resources/_gen
 
 **/.git
 **/.svn
@@ -11,3 +11,8 @@ package-lock.json
 
 *.md
 src/i18n/translations/**/*.json
+
+# Hugo templates: Prettier would break the template syntax
+layouts/
+*.gotmpl
+assets/css/base/fonts.css

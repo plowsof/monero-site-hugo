@@ -1,0 +1,20 @@
+{{- /*
+  The Unicode code points of the first n characters of a string, like
+  [...s].slice(0, n).map((c) => c.codePointAt(0)) in JavaScript. Used to derive
+  stable ids from text (accordion names, section tab ids).
+
+    {{ delimit (partial "helpers/code-points" (slice "MRL Bulletins" 7)) "-" }}  -> 77-82-76-32-66-117-108
+*/ -}}
+{{- $s := index . 0 -}}
+{{- $n := index . 1 -}}
+{{- $out := slice -}}
+{{- range first $n (split $s "") -}}
+  {{- if eq (len .) 1 -}}
+    {{- $out = $out | append (int (index . 0)) -}}
+  {{- else -}}
+    {{- /* %+q writes a non-ASCII character as "\uXXXX" or "\UXXXXXXXX" */ -}}
+    {{- $hex := strings.TrimLeft `"\uU` (strings.TrimSuffix `"` (printf "%+q" .)) -}}
+    {{- $out = $out | append (int (printf "0x%s" $hex)) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

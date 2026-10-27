@@ -1,0 +1,161 @@
+baseURL = "https://beta.monerodevs.org/"
+title = "Monero"
+publishDir = "dist"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+disableHugoGeneratorInject = true
+disableKinds = ["taxonomy", "term", "rss", "sitemap", "robotstxt"]
+# keep builds reproducible: no wall-clock or git dates leak into the output
+enableGitInfo = false
+timeZone = "UTC"
+
+[build]
+  noJSConfigInAssets = true
+
+# environment variables templates may read (Coolify PR previews)
+[security.funcs]
+  getenv = ["^HUGO_", "^CI$", "^COOLIFY_", "^SOURCE_COMMIT$"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# bare "www.example.com" links get http://, as with the Astro site (remark-gfm)
+[markup.goldmark.extensions]
+  linkifyProtocol = "http"
+
+[markup.goldmark.parser.attribute]
+  block = false
+
+# Smart punctuation for content pages, as the Astro site had it (retext-smartypants:
+# "--" is an em dash, no guillemets). The typographer writes private-use
+# placeholders; helpers/content turns them into the real characters and
+# /feed.xml back into what the author typed (the feed never had smart punctuation).
+[markup.goldmark.extensions.typographer]
+  disable = false
+  leftSingleQuote = ""
+  rightSingleQuote = ""
+  apostrophe = ""
+  leftDoubleQuote = ""
+  rightDoubleQuote = ""
+  enDash = ""
+  emDash = ""
+  ellipsis = ""
+  leftAngleQuote = "&lt;&lt;"
+  rightAngleQuote = "&gt;&gt;"
+
+# sitemap and blog feed: one each, at the site root (layouts/home.*.xml)
+[outputFormats.sitemapindex]
+  mediaType = "application/xml"
+  baseName = "sitemap-index"
+  isPlainText = true
+  notAlternative = true
+[outputFormats.sitemap0]
+  mediaType = "application/xml"
+  baseName = "sitemap-0"
+  isPlainText = true
+  notAlternative = true
+# /en/<path>/ redirects to /<path>/ for every English page (layouts/all.enredirect.html).
+# Its own media type keeps Hugo from using the pages' normal HTML templates for it.
+[mediaTypes."text/x-enredirect"]
+  suffixes = ["html"]
+[outputFormats.enredirect]
+  mediaType = "text/x-enredirect"
+  path = "en"
+  baseName = "index"
+  isHTML = true
+  notAlternative = true
+  noUgly = true
+[outputFormats.feed]
+  mediaType = "application/rss+xml"
+  baseName = "feed"
+  isPlainText = true
+  notAlternative = true
+
+[languages.en]
+  weight = 1
+  label = "English"
+  locale = "en-US"
+  [languages.en.outputs]
+    home = ["html", "enredirect", "sitemapindex", "sitemap0", "feed"]
+    page = ["html", "enredirect"]
+    section = ["html", "enredirect"]
+
+[languages.ar]
+  weight = 2
+  label = "العربية"
+  locale = "ar-SA"
+  direction = "rtl"
+
+[languages.zh]
+  weight = 3
+  label = "中文"
+  locale = "zh-CN"
+
+# Content, translations and data stay where the Astro site kept them, so
+# Weblate and contributor docs keep pointing at the same files.
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    [module.mounts.sites.matrix]
+      languages = ["**"]
+  # blog posts are read by content/blog/_content.gotmpl, which gives them the
+  # same URLs the site always had (/blog/YYYY/MM/DD/<file name>/)
+  [[module.mounts]]
+    source = "src/content/blog"
+    target = "assets/blog"
+  [[module.mounts]]
+    source = "src/content/legal"
+    target = "content/legal"
+    files = ["! **/_*"]
+    [module.mounts.sites.matrix]
+      languages = ["**"]
+  # moneropedia: each language only gets pages for its own entries; @term links
+  # to entries a language lacks point at the English page (see helpers/moneropedia)
+  [[module.mounts]]
+    source = "src/content/moneropedia/ar"
+    target = "content/resources/moneropedia"
+    files = ["! **/_*"]
+    [module.mounts.sites.matrix]
+      languages = ["ar"]
+  [[module.mounts]]
+    source = "src/content/moneropedia/zh"
+    target = "content/resources/moneropedia"
+    files = ["! **/_*"]
+    [module.mounts.sites.matrix]
+      languages = ["zh"]
+  [[module.mounts]]
+    source = "src/content/moneropedia/en"
+    target = "content/resources/moneropedia"
+    files = ["! **/_*"]
+    [module.mounts.sites.matrix]
+      languages = ["en"]
+  [[module.mounts]]
+    source = "src/i18n/translations"
+    target = "data/translations"
+  [[module.mounts]]
+    source = "src/data"
+    target = "data"
+    # data files only (contributing.json.asc lives here too)
+    files = ["*.yaml", "**/*.yaml", "*.json", "**/*.json"]
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "src/assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "public/meta"
+    target = "assets/meta"
+  [[module.mounts]]
+    source = "public"
+    target = "static"
+  [[module.mounts]]
+    source = "downloads"
+    target = "static/downloads"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
