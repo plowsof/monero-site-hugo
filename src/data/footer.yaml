@@ -46,7 +46,7 @@ bottomLinks:
   - label: bottomLinks.torOnionService
     href: "#"
     localize: false
-    icon: { name: tor, size: 1rem, color: "#7d4698", ignoreRtl: true }
+    icon: {name: tor, size: 1rem, color: "#7d4698", ignoreRtl: true}
   - label: bottomLinks.vulnerabilityResponse
     href: https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md
   - label: bottomLinks.legal
@@ -56,4 +56,4 @@ bottomLinks:
   - label: bottomLinks.rssFeed
     href: /feed.xml
     localize: false
-    icon: { name: rss, size: 1rem, color: "var(--monero-orange)" }
+    icon: {name: rss, size: 1rem, color: "var(--monero-orange)"}

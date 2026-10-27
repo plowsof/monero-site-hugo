@@ -11,6 +11,7 @@ permissions:
 
 env:
   HUGO_VERSION: "0.167.0"
+  YAMLFMT_VERSION: "0.21.0"
 
 jobs:
   lint:
@@ -36,6 +37,19 @@ jobs:
 
       - name: Check component styles are scoped
         run: python3 scripts/check-scoped-css.py
+
+      - name: Check CSS formatting
+        run: python3 scripts/check-css-format.py
+
+      - name: Check YAML formatting
+        run: |
+          base="https://github.com/google/yamlfmt/releases/download/v${YAMLFMT_VERSION}"
+          tarball="yamlfmt_${YAMLFMT_VERSION}_Linux_x86_64.tar.gz"
+          curl -sSLO "$base/$tarball"
+          curl -sSLO "$base/checksums.txt"
+          grep " $tarball\$" checksums.txt | sha256sum -c
+          tar -xzf "$tarball" yamlfmt
+          ./yamlfmt -lint
 
       - name: Check JSON files are valid and formatted
         # translations are left to Weblate; everything else is kept in jq's format

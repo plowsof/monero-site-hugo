@@ -150,6 +150,6 @@ CSS variables can't be used in media queries, so write the numbers.
 - [ ] CSS is in `assets/css/components/<name>.css`, imported in `main.css`, and scoped (or added to `assets/css/base/` with justification).
 - [ ] Uses CSS variables instead of hard-coded colors or sizes.
 - [ ] Works in dark mode and on common breakpoints.
-- [ ] `python3 scripts/check-scoped-css.py` passes, and the CSS follows the formatting of the existing stylesheets.
+- [ ] `python3 scripts/check-scoped-css.py` and `python3 scripts/check-css-format.py` pass.
 
 Links: [How to Make a New Page](how-to-make-a-new-page.md) | [How to Use the UI Library](how-to-use-the-ui-library.md) | [How to Handle Assets and Images](how-to-handle-assets-and-images.md)

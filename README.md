@@ -44,7 +44,7 @@ See [Understanding the project structure](docs/understanding-the-project-structu
 
 ## Commands
 
-You need [Hugo extended](https://gohugo.io/installation/) **v0.167.0** (the version CI and Docker use). The checks below also need Python 3 and `jq`; nothing needs Node.js.
+You need [Hugo extended](https://gohugo.io/installation/) **v0.167.0** (the version CI and Docker use). The checks below also need Python 3, `jq` and [yamlfmt](https://github.com/google/yamlfmt); nothing needs Node.js.
 
 | Command                                | Action                                                 |
 | :------------------------------------- | :----------------------------------------------------- |
@@ -52,6 +52,8 @@ You need [Hugo extended](https://gohugo.io/installation/) **v0.167.0** (the vers
 | `hugo`                                 | Builds the site to `./dist/`                           |
 | `python3 scripts/check-scoped-css.py`  | Checks that component styles only style their component |
 | `python3 scripts/check-no-js.py`       | Checks the built site in `./dist/` has no JavaScript   |
+| `python3 scripts/check-css-format.py`  | Checks stylesheets follow the project's formatting     |
+| `yamlfmt` / `yamlfmt -lint`            | Formats / checks the data YAML files ([yamlfmt](https://github.com/google/yamlfmt)) |
 | `jq . file.json > tmp && mv tmp file.json` | Formats a JSON data file the way CI expects        |
 
 A full build takes about a minute and a half the first time (it resizes images and draws the blog's preview cards); after that Hugo reuses its cache in `resources/_gen/`.
