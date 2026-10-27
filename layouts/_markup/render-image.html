@@ -10,7 +10,7 @@
     {{- $res = resources.Get (path.Join (path.Dir .) $src) -}}
   {{- end -}}
 {{- end -}}
-{{- if and (not $res) (hasPrefix $src ".") -}}
+{{- if and (not $res) (hasPrefix $src ".") (not .Page.Params.feed) -}}
   {{- errorf "%s: image %q not found (relative images are resolved from the Markdown file)" .Page.Params.sourceFile $src -}}
 {{- end -}}
 {{- with $res -}}
