@@ -1,6 +1,6 @@
 {
   "gui": {
-    "version": "v0.18.5.0",
+    "version": "v0.18.5.4",
     "downloads": [
       {
         "href": "https://downloads.getmonero.org/gui/win64install",
@@ -37,12 +37,12 @@
     ],
     "torrent": {
       "link": "https://downloads.getmonero.org/gui/torrent",
-      "magnet": "magnet:?xt=urn:btih:20f4090a51a85d3d6ab20dada066b8eae8c896b1&dn=monero-gui-v0.18.5.0&ws=https%3A%2F%2Fdownloads.getmonero.org%2F"
+      "magnet": "magnet:?xt=urn:btih:dfd87e3aa74833bca26f192ec4b9fbdeffe55b2c&dn=monero-gui-v0.18.5.4&ws=https%3A%2F%2Fdownloads.getmonero.org%2F"
     },
     "name": "Fluorine Fermi"
   },
   "cli": {
-    "version": "v0.18.5.0",
+    "version": "v0.18.5.4",
     "downloads": [
       {
         "href": "https://downloads.getmonero.org/cli/win64",
@@ -123,7 +123,7 @@
     ],
     "torrent": {
       "link": "https://downloads.getmonero.org/cli/torrent",
-      "magnet": "magnet:?xt=urn:btih:732fd7ddf87a293f687784b58c0c3c534abbf801&dn=monero-v0.18.5.0&ws=https%3A%2F%2Fdownloads.getmonero.org%2F"
+      "magnet": "magnet:?xt=urn:btih:84b490d5a55dfd86c317ae502c02257834878154&dn=monero-v0.18.5.4&ws=https%3A%2F%2Fdownloads.getmonero.org%2F"
     },
     "name": "Fluorine Fermi"
   }
