@@ -6,8 +6,7 @@ Quick, minimal steps to get the site running locally so you can start contributi
 
 - [Hugo extended](https://gohugo.io/installation/) **v0.167.0**, the version CI and Docker use. Use the release binary from GitHub (or your package manager if it has exactly this version). It must be the *extended* edition.
 - Git, for cloning and PRs.
-- Optional: Node.js 22+ and pnpm 10+ (`corepack enable pnpm`), only to run the formatter.
-- Optional: Python 3, to run the stylesheet check locally (CI runs it anyway).
+- Optional: Python 3 and `jq`, to run the checks locally (CI runs them anyway). Nothing needs Node.js.
 
 Verify:
 
@@ -48,8 +47,8 @@ The site is written to `dist/`.
 ## Useful Commands
 
 - Check component styles: `python3 scripts/check-scoped-css.py`
-- Format CSS/JSON/YAML: `pnpm install` once, then `pnpm format`
-- Validate the built HTML: `pnpm lint:html` (after `hugo`)
+- Check the built site has no JavaScript: `python3 scripts/check-no-js.py` (after `hugo`)
+- Format a JSON data file: `jq . src/data/downloads/core.json > tmp && mv tmp src/data/downloads/core.json` (CI checks JSON files are in this format)
 
 ## Troubleshooting
 

@@ -44,16 +44,15 @@ See [Understanding the project structure](docs/understanding-the-project-structu
 
 ## Commands
 
-You need [Hugo extended](https://gohugo.io/installation/) **v0.167.0** (the version CI and Docker use). Node.js and pnpm are only needed for formatting.
+You need [Hugo extended](https://gohugo.io/installation/) **v0.167.0** (the version CI and Docker use). The checks below also need Python 3 and `jq`; nothing needs Node.js.
 
 | Command                                | Action                                                 |
 | :------------------------------------- | :----------------------------------------------------- |
 | `hugo server`                          | Starts a local dev server at `localhost:1313`          |
 | `hugo`                                 | Builds the site to `./dist/`                           |
 | `python3 scripts/check-scoped-css.py`  | Checks that component styles only style their component |
-| `pnpm install`                         | Installs the formatting tools                          |
-| `pnpm format`                          | Formats CSS, JSON and YAML with Prettier               |
-| `pnpm lint:html`                       | Validates the built HTML in `./dist/`                  |
+| `python3 scripts/check-no-js.py`       | Checks the built site in `./dist/` has no JavaScript   |
+| `jq . file.json > tmp && mv tmp file.json` | Formats a JSON data file the way CI expects        |
 
 A full build takes about a minute and a half the first time (it resizes images and draws the blog's preview cards); after that Hugo reuses its cache in `resources/_gen/`.
 

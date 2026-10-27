@@ -37,20 +37,20 @@ jobs:
       - name: Check component styles are scoped
         run: python3 scripts/check-scoped-css.py
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Prettier - Code formatting
-        run: pnpm format:check
+      - name: Check JSON files are valid and formatted
+        # translations are left to Weblate; everything else is kept in jq's format
+        run: |
+          status=0
+          for f in $(git ls-files '*.json' ':!src/i18n/translations/**'); do
+            if ! jq . "$f" | diff -q - "$f" > /dev/null; then
+              echo "::error file=$f::not valid JSON or not formatted (fix with: jq . $f > tmp && mv tmp $f)"
+              status=1
+            fi
+          done
+          for f in $(git ls-files 'src/i18n/translations/**/*.json'); do
+            jq empty "$f" || { echo "::error file=$f::not valid JSON"; status=1; }
+          done
+          exit $status
 
   build:
     name: Build & Validate
@@ -80,17 +80,5 @@ jobs:
       - name: Build site
         run: hugo --gc
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Validate built HTML
-        run: pnpm lint:html
+      - name: Check the site has no JavaScript
+        run: python3 scripts/check-no-js.py dist
