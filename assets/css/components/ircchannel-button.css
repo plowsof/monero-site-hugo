@@ -5,11 +5,13 @@
   background: var(--card-color);
   border-radius: var(--radius-md);
   transition: background 0.15s ease;
+
   &[data-c-ircchannel-button]:hover,
   &[data-c-ircchannel-button]:focus-visible {
     background-color: var(--card-hover-color);
   }
 }
+
 .primary-link[data-c-ircchannel-button] {
   flex: 1;
   display: flex;
@@ -18,6 +20,7 @@
   padding: var(--space-sm) var(--space-md);
   text-decoration: none;
 }
+
 .channel-content[data-c-ircchannel-button] {
   flex: 1;
   display: flex;
@@ -25,21 +28,26 @@
   gap: var(--space-sm);
   min-width: 0;
 }
+
 .channel-name[data-c-ircchannel-button] {
   font-weight: var(--font-weight-semibold);
   white-space: nowrap;
+
   .channel-prefix {
     color: var(--paragraph-subtitle);
   }
+
   .channel-suffix {
     color: var(--monero-orange);
   }
 }
+
 .channel-desc[data-c-ircchannel-button] {
   flex: 1;
   color: var(--paragraph-subtitle);
   font-size: var(--font-size-sm);
 }
+
 .matrix-link[data-c-ircchannel-button] {
   flex-shrink: 0;
   display: flex;
@@ -52,15 +60,18 @@
   transition:
     background 0.15s ease,
     color 0.15s ease;
+
   &[data-c-ircchannel-button]:hover {
     background: color-mix(in srgb, var(--monero-orange) 10%, transparent);
     color: var(--monero-orange);
   }
 }
+
 @media (width <= 900px) {
   .channel-content[data-c-ircchannel-button] {
     flex-wrap: wrap;
   }
+
   .channel-name[data-c-ircchannel-button] {
     flex-basis: 100%;
   }

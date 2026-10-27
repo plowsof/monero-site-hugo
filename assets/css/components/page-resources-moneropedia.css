@@ -1,9 +1,11 @@
 /* Styles for layouts/resources/moneropedia.html */
+
 /* global */
 html {
   scroll-padding-top: 4em;
   scroll-behavior: smooth;
 }
+
 .letter-groups[data-c-page-resources-moneropedia] {
   overflow-y: auto;
   max-height: clamp(20rem, 70vh, 60rem);
@@ -11,12 +13,14 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 0;
 }
+
 @media (width <= 1000px) {
   .moneropedia-index[data-c-page-resources-moneropedia] {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     gap: var(--space-xl);
   }
+
   .letter-groups[data-c-page-resources-moneropedia] {
     overflow: visible;
     max-height: none;

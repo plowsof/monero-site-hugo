@@ -10,6 +10,7 @@
   border-radius: var(--radius-md);
   text-decoration: none;
   transition: background 0.15s ease;
+
   .arrow {
     flex-shrink: 0;
     color: var(--paragraph-subtitle);
@@ -21,6 +22,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .icon {
     flex-shrink: 0;
     color: var(--monero-orange);
@@ -28,17 +30,21 @@
     align-items: center;
     justify-content: center;
   }
+
   .title {
     flex: 1;
     font-weight: var(--font-weight-medium);
     color: var(--heading-color);
   }
+
   &::after {
     display: none;
   }
+
   &:hover {
     background: var(--card-hover-color);
     text-decoration: none;
+
     .arrow {
       opacity: 1;
       color: var(--monero-orange);

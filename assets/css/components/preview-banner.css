@@ -7,6 +7,7 @@
   text-align: center;
   z-index: 999;
 }
+
 .preview-banner-style[data-c-preview-banner] {
   display: inline-block;
   background: black;

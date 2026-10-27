@@ -5,9 +5,11 @@
   gap: var(--gap);
   justify-content: var(--justify);
   align-items: var(--align);
+
   &[data-nowrap] {
     flex-wrap: nowrap;
   }
+
   &[data-c-row]:is(ul, ol) {
     list-style: none;
     margin: 0;

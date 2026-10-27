@@ -1,50 +1,61 @@
 /* Styles for layouts/home.html */
+
 /* global */
 :root {
   --hero-min-height: calc(75vh + 3rem);
 }
+
 @supports (height: 100dvh) {
   /* global */
   :root {
     --hero-min-height: calc(75dvh + 3rem);
   }
 }
+
 h2[data-c-page-home] {
   font-size: var(--font-size-3xl);
   color: var(--heading-color);
   margin-bottom: var(--space-sm);
 }
+
 p[data-c-page-home] {
   margin: 0;
   color: var(--paragraph-subtitle);
   font-size: var(--font-size-lg);
 }
+
 hr[data-c-page-home] {
   border: none;
   border-top: 1px solid var(--border-color);
   margin: 1em 0;
 }
+
 .resource-grid[data-c-page-home] {
   grid-column: span 2;
 }
+
 .landing-image[data-c-page-home] {
   mask-image: radial-gradient(ellipse at center, black 60%, transparent 100%);
 }
+
 .main-content[data-c-page-home] {
   position: relative;
   margin-top: calc(var(--hero-min-height) - var(--page-top-margin)) !important;
 }
+
 .index-hero[data-c-page-home] {
   position: absolute;
   top: 3rem;
   inset-inline: 5rem;
   min-height: var(--hero-min-height);
 }
+
 @media (width <= 1200px) {
   #start-using-monero[data-c-page-home] {
     scroll-margin-top: 4rem;
   }
 }
+
 @media (width <= 600px) {
   .index-hero[data-c-page-home] {
     inset-inline: 2rem;

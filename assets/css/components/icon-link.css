@@ -7,12 +7,15 @@
   font-size: var(--size);
   font-weight: var(--weight);
   color: var(--color);
+
   &[data-c-icon-link]::after {
     display: none;
   }
+
   &[data-c-icon-link]:hover,
   &[data-c-icon-link]:focus-visible {
     opacity: 0.8;
+
     &[data-underline] {
       opacity: 1;
       text-decoration: underline;

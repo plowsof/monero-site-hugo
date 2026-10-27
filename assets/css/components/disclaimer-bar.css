@@ -5,6 +5,7 @@
   gap: var(--space-xs) var(--space-sm);
   margin: var(--space-md) 0;
 }
+
 .disclaimer-icon[data-c-disclaimer-bar] {
   grid-row: 1;
   grid-column: 1;
@@ -12,6 +13,7 @@
   align-items: center;
   color: var(--monero-orange);
 }
+
 .disclaimer-title[data-c-disclaimer-bar] {
   grid-row: 1;
   grid-column: 2;
@@ -19,6 +21,7 @@
   font-weight: var(--font-weight-semibold);
   color: var(--heading-color);
 }
+
 .disclaimer-text[data-c-disclaimer-bar] {
   grid-row: 2;
   grid-column: 2;

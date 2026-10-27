@@ -6,6 +6,7 @@
   margin-inline-start: var(--spacing);
   background: var(--iconColor);
   mask: var(--iconSrc) no-repeat center / contain;
+
   &[data-rtl] {
     transform: scaleX(-1);
     transform-origin: center;

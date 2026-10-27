@@ -19,80 +19,106 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v6
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- uses: actions/checkout@v6
 
-      - name: Check unescaped HTML
-        # safeHTML & co. switch off escaping. They are allowed only for tag
-        # wrappers (printf "<%s...") and in the reviewed helpers/render hooks
-        # below; translation strings go through helpers/markdown, which sanitizes.
-        run: |
-          if grep -rnE 'safe(HTML|HTMLAttr|JS|CSS|URL)\b' layouts \
-            | grep -vE '^layouts/(_partials/helpers/(attrs|markdown|moneropedia-content)\.html|_markup/render-(link|image)\.html|all\.enredirect\.html):' \
-            | grep -vE 'printf "</?%s(%s)?>"' \
-            | grep -vE 'htmlEscape'; then
-            echo "Error: unescaped output outside the reviewed places (see above)"
-            exit 1
-          fi
-          echo "All unescaped output is in reviewed places"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Check unescaped HTML
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  # safeHTML & co. switch off escaping. They are allowed only for tag
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  # wrappers (printf "<%s...") and in the reviewed helpers/render hooks
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  # below; translation strings go through helpers/markdown, which sanitizes.
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: |
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    if grep -rnE 'safe(HTML|HTMLAttr|JS|CSS|URL)\b' layouts \
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      | grep -vE '^layouts/(_partials/helpers/(attrs|markdown|moneropedia-content)\.html|_markup/render-(link|image)\.html|all\.enredirect\.html):' \
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      | grep -vE 'printf "</?%s(%s)?>"' \
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      | grep -vE 'htmlEscape'; then
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      echo "Error: unescaped output outside the reviewed places (see above)"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      exit 1
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    fi
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    echo "All unescaped output is in reviewed places"
 
-      - name: Check component styles are scoped
-        run: python3 scripts/check-scoped-css.py
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Check component styles are scoped
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: python3 scripts/check-scoped-css.py
 
-      - name: Check CSS formatting
-        run: python3 scripts/check-css-format.py
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Check CSS formatting
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: python3 scripts/check-css-format.py
 
-      - name: Check YAML formatting
-        run: |
-          base="https://github.com/google/yamlfmt/releases/download/v${YAMLFMT_VERSION}"
-          tarball="yamlfmt_${YAMLFMT_VERSION}_Linux_x86_64.tar.gz"
-          curl -sSLO "$base/$tarball"
-          curl -sSLO "$base/checksums.txt"
-          grep " $tarball\$" checksums.txt | sha256sum -c
-          tar -xzf "$tarball" yamlfmt
-          ./yamlfmt -lint
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Check YAML formatting
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: |
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    base="https://github.com/google/yamlfmt/releases/download/v${YAMLFMT_VERSION}"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    tarball="yamlfmt_${YAMLFMT_VERSION}_Linux_x86_64.tar.gz"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    curl -sSLO "$base/$tarball"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    curl -sSLO "$base/checksums.txt"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    grep " $tarball\$" checksums.txt | sha256sum -c
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    tar -xzf "$tarball" yamlfmt
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    ./yamlfmt -lint
 
-      - name: Check JSON files are valid and formatted
-        # translations are left to Weblate; everything else is kept in jq's format
-        run: |
-          status=0
-          for f in $(git ls-files '*.json' ':!src/i18n/translations/**'); do
-            if ! jq . "$f" | diff -q - "$f" > /dev/null; then
-              echo "::error file=$f::not valid JSON or not formatted (fix with: jq . $f > tmp && mv tmp $f)"
-              status=1
-            fi
-          done
-          for f in $(git ls-files 'src/i18n/translations/**/*.json'); do
-            jq empty "$f" || { echo "::error file=$f::not valid JSON"; status=1; }
-          done
-          exit $status
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Check JSON files are valid and formatted
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  # translations are left to Weblate; everything else is kept in jq's format
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: |
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    status=0
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    for f in $(git ls-files '*.json' ':!src/i18n/translations/**'); do
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      if ! jq . "$f" | diff -q - "$f" > /dev/null; then
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)        echo "::error file=$f::not valid JSON or not formatted (fix with: jq . $f > tmp && mv tmp $f)"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)        status=1
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      fi
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    done
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    for f in $(git ls-files 'src/i18n/translations/**/*.json'); do
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)      jq empty "$f" || { echo "::error file=$f::not valid JSON"; status=1; }
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    done
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    exit $status
+
+  css-lint:
+    name: Lint CSS (Stylelint)
+    runs-on: ubuntu-latest
+
+    steps:
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- uses: actions/checkout@v6
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  with:
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    fetch-depth: 0
+
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)# Stylelint with stylelint-config-standard, as on the Astro site, run from
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)# Super-Linter's container (no Node.js in this repository). The rules are
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)# in .github/linters/.stylelintrc.json. Fix problems locally with:
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)# docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Stylelint
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  uses: super-linter/super-linter/slim@2da136927bd4a73596db63044b504547c62cb854 # v9.0.0
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  env:
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    VALIDATE_ALL_CODEBASE: true
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    VALIDATE_CSS: true
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    CSS_FILE_NAME: .stylelintrc.json
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    FILTER_REGEX_INCLUDE: assets/css/.*
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    # a Hugo template, not plain CSS
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    FILTER_REGEX_EXCLUDE: assets/css/base/fonts.css
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    MULTI_STATUS: false
 
   build:
     name: Build & Validate
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v6
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- uses: actions/checkout@v6
 
-      - name: Install Hugo
-        run: |
-          base="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
-          tarball="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-          curl -sSLO "$base/$tarball"
-          curl -sSLO "$base/hugo_${HUGO_VERSION}_checksums.txt"
-          grep " $tarball\$" "hugo_${HUGO_VERSION}_checksums.txt" | sha256sum -c
-          tar -xzf "$tarball" hugo
-          sudo mv hugo /usr/local/bin/
-          hugo version
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Install Hugo
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: |
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    base="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    tarball="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    curl -sSLO "$base/$tarball"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    curl -sSLO "$base/hugo_${HUGO_VERSION}_checksums.txt"
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    grep " $tarball\$" "hugo_${HUGO_VERSION}_checksums.txt" | sha256sum -c
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    tar -xzf "$tarball" hugo
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    sudo mv hugo /usr/local/bin/
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    hugo version
 
-      - name: Cache processed images
-        uses: actions/cache@v4
-        with:
-          path: resources/_gen
-          key: hugo-gen-${{ env.HUGO_VERSION }}-${{ hashFiles('src/assets/**', 'src/content/**/*.png', 'src/content/**/*.jpg', 'src/content/**/*.svg', 'assets/images/**', 'assets/fonts/**') }}
-          restore-keys: hugo-gen-${{ env.HUGO_VERSION }}-
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Cache processed images
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  uses: actions/cache@v4
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  with:
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    path: resources/_gen
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    key: hugo-gen-${{ env.HUGO_VERSION }}-${{ hashFiles('src/assets/**', 'src/content/**/*.png', 'src/content/**/*.jpg', 'src/content/**/*.svg', 'assets/images/**', 'assets/fonts/**') }}
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)    restore-keys: hugo-gen-${{ env.HUGO_VERSION }}-
 
-      - name: Build site
-        run: hugo --gc
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Build site
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: hugo --gc
 
-      - name: Check the site has no JavaScript
-        run: python3 scripts/check-no-js.py dist
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)- name: Check the site has no JavaScript
+ docker run --rm -e RUN_LOCAL=true -e FIX_CSS=true ... (see docs/how-to-style-your-page-contents.md)  run: python3 scripts/check-no-js.py dist

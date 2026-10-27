@@ -7,8 +7,10 @@
   border-bottom: 1px solid var(--border-color);
   margin-bottom: var(--space-2xl);
 }
+
 .toc-item-default[data-c-toccontainer] {
   background: var(--card-color);
+
   &[data-c-toccontainer]:hover,
   &[data-c-toccontainer]:focus-visible {
     background: var(--card-hover-color);

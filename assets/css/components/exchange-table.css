@@ -4,6 +4,7 @@
   border-radius: var(--radius-md);
   overflow: hidden;
 }
+
 .sr-only[data-c-exchange-table] {
   position: absolute;
   width: 1px;
@@ -15,15 +16,19 @@
   white-space: nowrap;
   border: 0;
 }
+
 td[data-c-exchange-table] {
   color: var(--text-primary);
 }
+
 .exchange-row[data-c-exchange-table] {
   transition: background 0.15s ease;
+
   &[data-c-exchange-table]:hover {
     background: var(--card-hover-color);
   }
 }
+
 .with-icon[data-c-exchange-table] {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -31,6 +36,7 @@ td[data-c-exchange-table] {
   column-gap: var(--space-xs);
   align-items: flex-start;
 }
+
 .exchange-icon[data-c-exchange-table] {
   grid-area: icon;
   width: 3em;
@@ -38,11 +44,13 @@ td[data-c-exchange-table] {
   vertical-align: middle;
   flex-shrink: 0;
 }
+
 .exchange-name[data-c-exchange-table] {
   grid-area: name;
   font-weight: var(--font-weight-semibold);
   color: var(--heading-color);
 }
+
 .exchange-description[data-c-exchange-table] {
   grid-area: desc;
   color: var(--paragraph-subtitle);
@@ -50,53 +58,66 @@ td[data-c-exchange-table] {
   line-height: var(--line-height-caption);
   margin-top: 0.25rem;
 }
+
 .kyc-required[data-c-exchange-table] {
   color: #f44336;
 }
+
 .kyc-optional[data-c-exchange-table] {
   color: #ff9800;
 }
+
 .kyc-none[data-c-exchange-table],
 .checkmark[data-c-exchange-table] {
   color: #4caf50;
 }
+
 .cross[data-c-exchange-table] {
   color: var(--text-secondary);
 }
+
 .visit-cell[data-c-exchange-table] {
   a {
     font-weight: var(--font-weight-medium);
   }
 }
+
 .th-visit[data-c-exchange-table] {
   text-align: end;
 }
+
 @media (width >= 901px) {
   .col-flag[data-c-exchange-table] {
     width: 1%;
   }
+
   .col-visit[data-c-exchange-table] {
     width: 1%;
   }
+
   .exchange-table[data-c-exchange-table]
     [data-c-exchange-table]:is(th, td):not(:first-child) {
     white-space: nowrap;
     text-align: center;
     padding-inline: var(--space-xl);
   }
+
   .visit-cell[data-c-exchange-table] {
     text-align: end;
   }
 }
+
 @media (width <= 900px) {
   .table-wrap[data-c-exchange-table] {
     background: transparent;
     border-radius: 0;
     overflow: visible;
   }
+
   .exchange-table[data-c-exchange-table] {
     background: transparent;
   }
+
   .exchange-thead[data-c-exchange-table] {
     position: absolute;
     width: 1px;
@@ -108,17 +129,21 @@ td[data-c-exchange-table] {
     white-space: nowrap;
     border: 0;
   }
+
   .exchange-table[data-c-exchange-table] tbody[data-c-exchange-table] {
     display: block;
   }
+
   .exchange-description[data-c-exchange-table] {
     margin-top: var(--space-xs);
   }
+
   .exchange-table[data-c-exchange-table]
     tbody[data-c-exchange-table]
     tr[data-c-exchange-table] {
     box-shadow: none;
   }
+
   .exchange-row[data-c-exchange-table] {
     display: flex;
     flex-wrap: wrap;
@@ -127,12 +152,15 @@ td[data-c-exchange-table] {
     border-radius: var(--radius-lg);
     background: var(--card-color);
     box-shadow: var(--shadow-xs);
+
     &[data-c-exchange-table]:last-child {
       margin-bottom: 0;
     }
+
     & td[data-c-exchange-table]:not(.pill) {
       padding: 0;
     }
+
     .with-icon {
       order: 0;
       flex: 1 1 100%;
@@ -141,10 +169,12 @@ td[data-c-exchange-table] {
       column-gap: var(--space-sm);
       align-items: center;
     }
+
     .exchange-icon {
       width: 2.5rem;
     }
   }
+
   .pill[data-c-exchange-table] {
     order: 1;
     flex: 0 0 auto;
@@ -158,6 +188,7 @@ td[data-c-exchange-table] {
     line-height: 1;
     white-space: nowrap;
     gap: var(--space-2xs);
+
     &[data-c-exchange-table]::before {
       content: attr(data-label);
       text-transform: uppercase;
@@ -167,15 +198,18 @@ td[data-c-exchange-table] {
       color: var(--paragraph-subtitle);
     }
   }
+
   .visit-cell[data-c-exchange-table] {
     order: 2;
     flex: 1 1 100%;
     margin-top: 0.25rem;
+
     &[data-c-exchange-table]::before {
       content: "";
       display: block;
       margin-bottom: var(--space-md);
     }
+
     & a[data-c-exchange-table] {
       display: inline-flex;
       align-items: center;
