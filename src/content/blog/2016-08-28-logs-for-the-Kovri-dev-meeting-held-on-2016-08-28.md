@@ -7,329 +7,329 @@ author: dEBRUYNE / fluffypony
 
 ### Logs
 
-**\<fluffypony>** anonimal: all yours  
-**\<tewinget>** in the meantime, for those not interested (or relevant to) the kovri meeting, anyone wanna help me test the zmq wallet<->daemon interactions?  
-**\<meeting-bot> [anonimal]** Proposed meeting items:  
-**\<tewinget>** oh  
-**\<tewinget>** shit  
-**\<meeting-bot> [anonimal]** 1. Greetings  
-**\<meeting-bot> [anonimal]** 2. Brief review of what's been completed since the previous meeting  
-**\<meeting-bot> [anonimal]** 3. Code + ticket discussion / Q & A  
-**\<meeting-bot> [anonimal]** 4. Discuss #282  
-**\<meeting-bot> [anonimal]** 5. Closing #226  
-**\<meeting-bot> [anonimal]** 6. Closing #105  
-**\<meeting-bot> [anonimal]** 7. Closing #46  
-**\<meeting-bot> [anonimal]** 8. Closing #27  
-**\<meeting-bot> [anonimal]** 9. Any additional meeting items  
-**\<meeting-bot> [anonimal]** 10. Confirm next meeting date/time  
-**\<meeting-bot> [anonimal]** btw, twinget, you are \*all\* relevant to the meeting and you \*ALL\* should be interested.  
-**\<meeting-bot> [anonimal]** Its that kind of attitude that is preventable advancing kovri development within monero.  
-**\<fluffypony>>** +100  
-**\<meeting-bot> [anonimal]** 1. Greetings  
-**\<meeting-bot> [anonimal]** Hi, I'm here.  
-**\<meeting-bot> [fluffypony]** me three  
-**\<tewinget>>** anonimal (I'm not relevant in the sense that I have no context, need to learn more about it :))  
-**\<i2p-relay> {-solmar}>** we need all the help we can get  
-**\<meeting-bot> [fluffypony]** EinMByte ?  
-**\<ArticMine>>** I will stay for another 20 min then I have to leave.  
-**\<meeting-bot> [fluffypony]** tks ArticMine  
-**\<meeting-bot> [anonimal]** Hi ArticMine.  
-**\<ArticMine>>** Hi  
-**\<meeting-bot> [anonimal]** Hi solmar, EinMByte, fluffypony.  
-**\<meeting-bot> [anonimal]** 2. Brief review of what's been completed since the previous meeting  
-**\<meeting-bot> [anonimal]** $ git checkout master && git log --pretty=oneline --no-merges --since=2016-07-31 | wc -l  
-**\<meeting-bot> [anonimal]** 55  
-**\<meeting-bot> [anonimal]** - Lots of build work  
-**\<meeting-bot> [anonimal]** - Reinstate FreeBSD build  
-**\<meeting-bot> [anonimal]** - Reinstate Clang support  
-**\<meeting-bot> [anonimal]** - New config features  
-**\<meeting-bot> [anonimal]** - New logging features  
-**\<meeting-bot> [anonimal]** - Implemented SNI (part of cpp-netlib)  
-**\<meeting-bot> [anonimal]** I'm doing work in branch fix-305, not detailed here.  
-**\<meeting-bot> [anonimal]** We have a new member onbard, 'solmar'. guzzi is back with us too.  
-**\<meeting-bot> [anonimal]** rakhimov is becoming more active, all great.  
-**\<meeting-bot> [anonimal]** I hope EinMByte's travels have been well and has returned.  
-**\<meeting-bot> [solmar]** hey all ;)  
-**\<meeting-bot> [anonimal]** Did I miss anything for point 2.?  
-**\<fluffypony>** well  
-**\<fluffypony>** is it worth discussing #325 now?  
-**\<meeting-bot> [solmar]** the quality assurance document is note worthy but i think you got everything  
-**\<meeting-bot> [anonimal]** fluffypony: no not yet.  
-**\<fluffypony>** ok  
-**\<meeting-bot> [anonimal]** solmar: thanks, good point. Yes solmar and I reworked #58 and introduced it into a tangible guide.  
-**\<meeting-bot> [anonimal]** Anything on 2. before moving onto 3.?  
-**\<fluffypony>** nothing more on 2  
-**\<meeting-bot> [anonimal]** Before 3., did solmar want to formally introduce themself?  
-**\<meeting-bot> [solmar]** sure i can quickly introduce  
-**\<meeting-bot> [solmar]** you guys may have seen me kicking around the various monero-related channels in the past few weeks. monero has peaked great interest in me and moving forward will be quite powerful  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** Welcome :)  
-**\<meeting-bot> [solmar]** i am switching focus to kovri because of how unmanned the team is but in the next week i would gladly help test ringct code on the testnet  
-**\<meeting-bot> [fluffypony]** +1  
-**\<tewinget>** s/peaked/piqued/ <-- fuck English sometimes  
-**\<meeting-bot> [solmar]** in the meantime i will continue to learn the kovri code to hopefully in the near future begin to make tangible contributions to the code  
-**\<meeting-bot> [fluffypony]** awesome, everyone should dabble in both  
-**\<meeting-bot> [solmar]** any interest and help with kovri is greatly appreciated  
-**\<meeting-bot> [solmar]** i think we can move along to 3. now thanks anominal ;)  
-**\<meeting-bot> [anonimal]** Alright, thanks solmar.  
-**\<meeting-bot> [anonimal]** 3. Code + ticket discussion / Q & A  
-**\<meeting-bot> [anonimal]** I'll open  
-**\<meeting-bot> [fluffypony]** some of the design decisions in Kovri were influenced by Monero, so no getting away from it, Monero devs ;)  
-**\<meeting-bot> [anonimal]** Question: WHEN WILL MONERO DEVS START TAKING KOVRI SERIOUSLY?  
-**\<meeting-bot> [anonimal]** 10 months in now since our november 1st meeting,  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** Define "taking seriously" ? Send patches ?  
-**\<tewinget>** anonimal: I take it just as seriously as, say, RingCT, I just haven't had/taken the time to dig into either yet :)  
-**\<meeting-bot> [anonimal]** As a whole, if I could quantify contributions, I'd say kovri is getting ~5% attention to what bitmonero and ecosystem is getting.  
-**\<meeting-bot> [anonimal]** moneromooo: anything.  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** OK, fair enough. A new codebase appearing like that is going to be not so easy to jump back and forth for coders. But I hear your point.  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** I will try to get into kovri a bit once rct is all done.  
-**\<meeting-bot> [anonimal]** I understand all the arguments, and I know what sacrifices would need to be made, so I question when and if they will be made.  
-**\<meeting-bot> [anonimal]** Thanks moneromooo.  
-**\<meeting-bot> [fluffypony]** the easiest way to get hyc involved it for us to use LMDB for storage of something :-P  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** (and feel free to remind me of it if I don't :P)  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** Nah, use liblber for network.  
-**\<meeting-bot> [anonimal]** fluffypony: this goes for you too, as we'll see with the remaining agenda items.  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** Make us fast and secure comms!  
-**\<tewinget>** fluffypony: in the same way as with hyc, the easiest way to get me involved is something needing refactored >\_>  
-**\<meeting-bot> [anonimal]** Anyone else over there have a response beside moneromooo and tewinget?  
-**\<meeting-bot> [anonimal]** If not, we should move onto other Q & A.  
-**\<meeting-bot> [fluffypony]** is this still the ticket discussion part?  
-**\<meeting-bot> [anonimal]** Point 3.  
-**\<meeting-bot> [fluffypony]** yes - but I mean ticket discussion is part of Q&A or can I bring up a ticket now?  
-**\<meeting-bot> [anonimal]** I have library questions I would want to debate with EinMByte but I don't think he's around.  
-**\<meeting-bot> [anonimal]** Sure but that's least priority at the moment.  
-**\<meeting-bot> [anonimal]** And should be 9.  
-**\<meeting-bot> [anonimal]** I'd rather move onto 4. if no one has any questions.  
-**\<meeting-bot> [fluffypony]** kk  
-**\<meeting-bot> [anonimal]** 4. Discuss #282  
-**\<meeting-bot> [fluffypony]** ok so  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** There was a designer guy asking whether help was wanted. He seemed to be after paid work though.  
-**\<meeting-bot> [fluffypony]** with the Monero logo we used 99designs  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** eherdesign in #monero  
-**\<meeting-bot> [fluffypony]** moneromooo: I looked at his stuff, it wasn't mind-blowing  
-**\<meeting-bot> [fluffypony]** I'd like to move to use 99designs again  
-**\<meeting-bot> [fluffypony]** ref: https://99designs.com/logo-design/contests/monero-mro-cryptocurrency-logo-design-contest-382486  
-**\<meeting-bot> [fluffypony]** I'm happy to put the $500 up for that, and then use the FFS to get it back  
-**\<meeting-bot> [fluffypony]** unless anyone feel we must go for a higher 99designs reward  
-**\<othe>** i would also sponsor that  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** _ hopes it won't be some shady looking concept  
-**\<meeting-bot> [i2p-relay] {-ArticMine}** It worked very well for Monero so I say yeas with the same package  
-**\<meeting-bot> [i2p-relay] {-ArticMine}** yes  
-**\<meeting-bot> [solmar]** maidsafe also appears to be having success with 99designs so i think it is a good idea  
-**\<meeting-bot> [fluffypony]** ok - I'll set that up now - do we have any ideas as to what we want to convey?  
-**\<meeting-bot> [i2p-relay] {-ArticMine}** Well I have to leave now  
-**\<meeting-bot> [fluffypony]** do we want it to be inspired by the Monero logo, like the MRL logo is?  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** The essential qualities of garlic.  
-**\<meeting-bot> [fluffypony]** (ref: https://lab.getmonero.org/logo.png)  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** ^ great logo  
-**\<groeg>** (noob here ...) A podcast I follow have a promo code för 99designs. Interesting?  
-**\<meeting-bot> [fluffypony]** groeg: yes plz, can you PM it to me?  
-**\<cjd>** you'll want to pm it to fluffypony, not to the bot  
-**\<cjd>** he's in this irc  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** Actually... you could rotate the Monero logo 90% clockwise and arrange colors a bit so it looks like a K. With kind of a hidden M.  
-**\<groeg>** newbie using IRC, looking up how to pm ...  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** groeg: /query NICKHERE  
-**\<meeting-bot> [fluffypony]** thanks groeg, got it  
-**\<meeting-bot> [solmar]** conveying a "veil"-ish esque style to it could be interesting, since kovri means veil in esperanto afaik  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** 90 degrees, not %, of course -\_-  
-**\<meeting-bot> [fluffypony]** solmar that's pretty much what I was thinking, something along the lines of a network, but it's private  
-**\<meeting-bot> [fluffypony]** or something  
-**\<meeting-bot> [fluffypony]** doesn't have to be a "veil" in the literal sense  
-**\<meeting-bot> [solmar]** ya  
-**\<meeting-bot> [solmar]** i agree  
-**\<meeting-bot> [solmar]** ya exactly  
-**\<meeting-bot> [anonimal]** Sorry, unexpected AFK emergency, unavoidable.  
-\*\*\<meeting-bot> _ anonimal** reading  
-**\<meeting-bot> [anonimal]** moneromooo: cool idea, maybe someone can run with that.  
-**\<meeting-bot> [fluffypony]** anonimal: the rotated K thing?  
-**\<meeting-bot> [fluffypony]** I can suggest that in the 99designs description  
-**\<meeting-bot> [anonimal]** Yeah, but maybe not literally, just an artistic motive I guess.  
-**\<meeting-bot> [fluffypony]** yeah  
-**\<meeting-bot> [anonimal]** But also garlic is a good point as solmar pointed out.  
-**\<meeting-bot> [fluffypony]** isn't garlic very Tor?  
-**\<meeting-bot> [anonimal]** So a rotated K inside a garlic clove  
-**\<meeting-bot> [anonimal]** No, they're onion.  
-**\<meeting-bot> [fluffypony]** oh yes  
-**\<meeting-bot> [fluffypony]** my bad  
-**\<meeting-bot> [anonimal]** onion router similar to garlic routing.  
-**\<meeting-bot> [anonimal]** Meh, its practically the same vegetable.  
-**\<meeting-bot> [fluffypony]** lo  
-**\<meeting-bot> [fluffypony]** lol  
-**\<meeting-bot> [fluffypony]** we should go wild and create spinach routing  
-**\<meeting-bot> [anonimal]** lol  
-**\<meeting-bot> [anonimal]** "Kovri provides essential iron and vitamins"  
-**\<meeting-bot> [fluffypony]** http://paulkieschedesign.com/blog/wp-content/uploads/2011/12/shandong-logo.jpg <- perfect  
-**\<meeting-bot> [anonimal]** "Eat kovri today"  
-**\<meeting-bot> [fluffypony]** the name, not the logo  
-**\<meeting-bot> [fluffypony]** so for a previous April 1 we renamed Monero to DarkFlarb, so I move that for next year April 1 we rename Kovri to Shandong  
-**\<meeting-bot> [fluffypony]** ShanDong  
-**\<meeting-bot> [anonimal]** The ShanDong I2P Router project... hmm...  
-**\<meeting-bot> [anonimal]** fluffypony: how do we keep track of #282?  
-**\<meeting-bot> [fluffypony]** lol  
-**\<meeting-bot> [fluffypony]** anonimal: othe and I will set it up and update in-ticket  
-**\<meeting-bot> [anonimal]** fluffypony: thanks.  
-**\<meeting-bot> [anonimal]** Anything else on #282?  
-**\<meeting-bot> [fluffypony]** nada  
-**\<meeting-bot> [anonimal]** If we use a dog somewhere in there, and Shandong, we should go with a pug.  
-**\<groeg>** shandong = 山东 = mountain east  
-**\<meeting-bot> [fluffypony]** TIL  
-**\<meeting-bot> [anonimal]** The eastside rugged pug.  
-**\<groeg>** (literal meaning of the characters)  
-**\<meeting-bot> [fluffypony]** east mountain pugs unite  
-**\<meeting-bot> _ anonimal** see dog flip gang symbol with fingers  
-**\<meeting-bot> [fluffypony]** DogeI2P  
-**\<meeting-bot> [anonimal]** Here we go, lol  
-**\<meeting-bot> [anonimal]** Ok, 5. Closing #226  
-**\<meeting-bot> [anonimal]** This is useful when: 1) i2p-relay is down 2) slack is not available or people aren't signed up nor want to sign up  
-**\<meeting-bot> [anonimal]** I've registered the channels and am idling.  
-**\<meeting-bot> [fluffypony]** ok so  
-**\<meeting-bot> [fluffypony]** are we happy running this under the core relay and not the community relay?  
-**\<meeting-bot> [anonimal]** By community you mean the one in #monero/#monero-dev?  
-**\<meeting-bot> [fluffypony]** the community one is the one that needmoney90 runs, to Slack / Telegram etc.  
-**\<meeting-bot> [fluffypony]** the core one is i2p-relay  
-**\<meeting-bot> [fluffypony]** anonimal: is there a #tahoe-lafs on OFTC?  
-**\<meeting-bot> [fluffypony]** because I don't want to take tahoe-lafs out the relay list, necessarily  
-**\<meeting-bot> [anonimal]** fluffypony: yes, with 4 people, no channel topic. Doesn't look official.  
-**\<meeting-bot> [fluffypony]** ok then I'll just relay it, tough for them  
-**\<meeting-bot> [anonimal]** They will probably enjoy it.  
-**\<meeting-bot> [fluffypony]** indeed  
-**\<meeting-bot> [fluffypony]** ok I'll do that right now  
-**\<meeting-bot> [anonimal]** So this would be for i2p-relay?  
-**\<meeting-bot> _ anonimal** so many relays, so confused  
-**\<meeting-bot> [fluffypony]** lol  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** What's #tahoe-lafs relation with kovri btw ?  
-**\<meeting-bot> [anonimal]** moneromooo: Nothing really aside from an i2p plugin available to use with tahoe-lafs, AFAIK  
-**\<meeting-bot> [anonimal]** fluffypony: if you're doing it right now, I'll wait.  
-**\<meeting-bot> [fluffypony]** moneromooo: they asked me to run a relay, as their relay has disappeared  
-**\<meeting-bot> [anonimal]** Damn, it's been an hour. Do we continue?  
-**\<meeting-bot> [fluffypony]** yes - we started late  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** I think it's mostly up to you, the main kovri person.  
-**\<meeting-bot> _ anonimal** didn't want to stop on necessary bitmonero business  
-**\<meeting-bot> [anonimal]** fluffypony: do you have to restart the relay? Is #226 resolved?  
-**\<meeting-bot> [fluffypony]** the bouncer is connected  
-**\<meeting-bot> [fluffypony]** sec  
-**\<theRelay\_\_> \<fluffypony@OFTC>** testing  
-**\<fluffypony>** testing back  
-**\<meeting-bot> [fluffypony]** and from here  
-**\<meeting-bot> [fluffypony]** meeting-bot might be interfering with it a little, so I'll fiddle with it after I've killed meeting-bot  
-**\<meeting-bot> [anonimal]** It's only me and the bot on OFTC  
-**\<meeting-bot> [anonimal]** Is fluffypony@OFTC actually fluffypony@Freenode ?  
-**\<meeting-bot> [fluffypony]** no I don't know - I need to check if it's relaying between all 3, and can't do that with meeting-bot online  
-**\<meeting-bot> [fluffypony]** coz meeting bot is also relaying  
-**\<meeting-bot> [anonimal]** Ok, can we quickly review the remaining items?  
-**\<meeting-bot> [fluffypony]** sure  
-**\<meeting-bot> [anonimal]** 6. Closing #105  
-**\<meeting-bot> [anonimal]** Hmm, tricky.  
-**\<meeting-bot> [fluffypony]** sorry internet is slow  
-**\<meeting-bot> [fluffypony]** ok so  
-**\<meeting-bot> [fluffypony]** the moneroworld instance is up  
-**\<meeting-bot> [anonimal]** https://social.moneroworld.com went online but admin has not responded to anything in a month  
-**\<meeting-bot> [fluffypony]** hmmm  
-**\<meeting-bot> [anonimal]** There were multiple issues, probably still are, that would need to be resolved before we go officially public.  
-**\<meeting-bot> [fluffypony]** ok then I think leave it open  
-**\<meeting-bot> [anonimal]** But it's not kovri-related.  
-**\<meeting-bot> [anonimal]** That's what annoys me. We have a forum post open for it.  
-**\<meeting-bot> [anonimal]** And there's also that /bitmonero ticket open  
-**\<meeting-bot> _ anonimal** fetches  
-**\<meeting-bot> [anonimal]** #903  
-**\<DaveyJones>** gingeropolous aint that your site?  
-**\<meeting-bot> [fluffypony]** anonimal: do we want a common gnu-social for the two?  
-**\<meeting-bot> [fluffypony]** or separate?  
-**\<gingeropolous>** wut?  
-**\<meeting-bot> [anonimal]** I thought it would be an umbrella instance, more of a 'pro-decentralization' initiative not specific to kovri or bitmonero.  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** https://social.moneroworld.com <- your site ?  
-**\<gingeropolous>** oh, DaveyJones , no... i just pay for the domain name and put it on afraid.org so anyone can create subdomains for free  
-**\<meeting-bot> [anonimal]** I've already signed up for @kovri and @anonimal at quitter.se in case this issue was never resolved.  
-**\<meeting-bot> [i2p-relay] {-moneromooo}** Oh, that's nice idea.  
-**\<meeting-bot> [fluffypony]** ok  
-**\<meeting-bot> [fluffypony]** let's leave it open and prod the guy again  
-**\<meeting-bot> [fluffypony]** if we hear nothing by next dev meeting we re-host from scratch  
-**\<meeting-bot> [anonimal]** quitter.se is nice aside from the psychopath/bot with the sickle and hammer avatar that spams the feed like there is no tomorrow.  
-**\<meeting-bot> [anonimal]** Ok, I'll make a note.  
-**\<meeting-bot> [anonimal]** 7. Closing #46  
-**\<meeting-bot> [fluffypony]** I'm moving registrars for all critical domains, including getkovri.org  
-**\<meeting-bot> [fluffypony]** which is affecting that and the other one  
-**\<meeting-bot> [fluffypony]** (the increased attention means an increase of people poking at our infrastructure, hence the move)  
-**\<meeting-bot> [anonimal]** Ah, ok. How is content coming along? Did you get that rough draft finished?  
-**\<meeting-bot> [fluffypony]** should be done by next meeting, and I'll push the Kovri page to the Monero website in the next week so that we can open it up to the community to work on it  
-**\<meeting-bot> [fluffypony]** it's in a sub-section of its own  
-**\<meeting-bot> [fluffypony]** so it can have as much content as required  
-**\<meeting-bot> [EinMByte]** nice, didn't know we were getting a website  
-**\<meeting-bot> [anonimal]** Alright, I'll make a note.  
-**\<meeting-bot> [fluffypony]** EinMByte: I was going to do it in Geocities, but anonimal convinced me not to  
-**\<meeting-bot> [EinMByte]** (then again, I probably missed a lot)  
-**\<meeting-bot> [fluffypony]** snow flake mouse cursors are the bomb  
-**\<meeting-bot> [anonimal]** Yeah, fluffypony has yet to learn the finer points of 90's webdev.  
-**\<meeting-bot> [fluffypony]** fo sho  
-**\<meeting-bot> [anonimal]** We're working on that.  
-**\<meeting-bot> [fluffypony]** Backstreet Boys backgrounds everywhere  
-**\<meeting-bot> [anonimal]** Once we get a logo, the site should look snazzy.  
-**\<meeting-bot> [anonimal]** 'Kovri's back, alright!'  
-**\<meeting-bot> [fluffypony]** hah hah  
-**\<meeting-bot> [anonimal]** Ok, 8. Closing #27  
-**\<meeting-bot> [anonimal]** Ah, looks like we've had some activity there lately.  
-**\<meeting-bot> [anonimal]** Looks like two issues now. So, 1) updates on zoho? 2) should we ever have a mailing list?  
-**\<meeting-bot> [fluffypony]** can't proceed with Zoho till the domain move is done, but that's basically setup  
-**\<meeting-bot> [fluffypony]** I don't think mailing lists are necessary  
-**\<meeting-bot> [fluffypony]** we already have stuff scattered everywhere, another avenue will just make dissipate it more  
-**\<meeting-bot> [anonimal]** Agreed.  
-**\<meeting-bot> [EinMByte]** ever ? maybe, now ? no  
-**\<meeting-bot> [anonimal]** fluffypony: ETA on domain move completion (or did you already say?... /me reads)?  
-**\<meeting-bot> [fluffypony]** anonimal: by next meeting  
-**\<meeting-bot> [fluffypony]** if it's done sooner then great  
-**\<meeting-bot> [anonimal]** Ok, great. Once that's resolved we can resolve the HackerOne issue.  
-**\<meeting-bot> [anonimal]** Which will be another avenue for more attention.  
-**\<meeting-bot> [anonimal]** I'll make a note in #27.  
-**\<meeting-bot> [anonimal]** Anything else on #27?  
-**\<meeting-bot> [fluffypony]** nope that's it for now  
-**\<meeting-bot> [anonimal]** 9. Any additional meeting items  
-**\<meeting-bot> [anonimal]** EinMByte, how goes it?  
-**\<guzzi>** present fgi  
-**\<meeting-bot> [anonimal]** Hi guzzi.  
-**\<meeting-bot> [anonimal]** guzzi: anything you wanted to add to the meeting?  
-**\<guzzi>** glad to be a back. learning a lot.  
-**\<meeting-bot> [EinMByte]** anonimal: Hopefully some work on SSU soon  
-**\<meeting-bot> [anonimal]** EinMByte: I had thoughts and questions on library design if you're around after the meeting  
-**\<meeting-bot> [EinMByte]** Sure  
-**\<guzzi>** looking to focus more on kovri since it has the least devs and is more easy to peneatrate into development.  
-**\<guzzi>** still getting up to speed.  
-**\<meeting-bot> [anonimal]** EinMByte: nice, I look forward to the day we merge that branch.  
-**\<meeting-bot> [EinMByte]** guzzi: If you're looking for easy stuff to get used to the code, tests and documentation are very much needed so that might be a good idea  
-**\<meeting-bot> [anonimal]** guzzi: ok, if you have any questions, feel free to shout out.  
-**\<meeting-bot> [anonimal]** solmar: ^ what EinMByte said too if interested.  
-**\<guzzi>** EinMByte, thanks on it.  
-**\<guzzi>** i will look for todos.  
-**\<guzzi>** an prs on that  
-**\<meeting-bot> [anonimal]** fluffypony: you wanted to talk about #325?  
-**\<meeting-bot> [fluffypony]** oh - not necessarily, it was more to find out if it needed discussion  
-**\<meeting-bot> [solmar]** i'll check it out thanks ;)  
-**\<meeting-bot> [anonimal]** fluffypony: I think #325 is more of a 'po-tey-to' 'po-tah-to' kind of issue  
-**\<meeting-bot> [anonimal]** and a possible solution is 'let's call the whole thing off'.  
-**\<meeting-bot> [anonimal]** I'll figure itself out.  
-**\<meeting-bot> [anonimal]** Anything else on 9.? Any more meeting items?  
-**\<meeting-bot> [anonimal]** With organizational things out of the way, the next meeting can be far more codebase-orieted.  
-**\<meeting-bot> [anonimal]** \*oriented  
-**\<meeting-bot> [fluffypony]** kk  
-**\<meeting-bot> [anonimal]** 10. Confirm next meeting date/time  
-**\<meeting-bot> [fluffypony]** https://99designs.com/logo-design/contests/create-beautiful-logo-kovri-privacy-enhancing-open-source-652257/entries  
-**\<meeting-bot> [fluffypony]** https://99designs.com/logo-design/contests/create-beautiful-logo-kovri-privacy-enhancing-open-source-652257/brief that thing  
-**\<meeting-bot> [anonimal]** fluffypony: nice  
-**\<meeting-bot> [fluffypony]** k next meeting, same time, same place, 2 weeks  
-**\<meeting-bot> [anonimal]** Where's the 'optional dog' button?  
-**\<meeting-bot> [fluffypony]** Two Weeks (tm)  
-**\<meeting-bot> [anonimal]** Do we have to do 2 weeks?  
-**\<meeting-bot> [fluffypony]** you want to do longer?  
-**\<meeting-bot> [fluffypony]** or shorter?  
-**\<meeting-bot> [anonimal]** I mean, I guess it depends on who is involved. If it's the usual, then I'd say 1 month.  
-**\<meeting-bot> [fluffypony]** guzzi / solmar / EinMByte - thoughts ?  
-**\<meeting-bot> [EinMByte]** We can discuss some of the more technical things separately  
-**\<guzzi>** 1 mo fine. i will be on irc for technical things. still playing catch up.  
-**\<meeting-bot> [fluffypony]** ok  
-**\<meeting-bot> [fluffypony]** then we do it in 4 weeks, same time as the meeting after next Monero dev meeting?  
-**\<meeting-bot> [solmar]** 1 month is fine  
-**\<meeting-bot> [solmar]** i'll be around as often as i can  
-**\<meeting-bot> [anonimal]** Same time is fine with me.  
-**\<meeting-bot> [fluffypony]** thankyouverymuch!  
-**\<meeting-bot> [anonimal]** Ok, thanks everyone.  
-**\<meeting-bot> [fluffypony]** can I kill meeting-bot?  
-**\<meeting-bot> [anonimal]** fluffypony: swift and painless if possible.  
-**\<meeting-bot> [anonimal]\*\* She need not suffer.
+<strong>\<fluffypony\></strong> anonimal: all yours  
+<strong>\<tewinget\></strong> in the meantime, for those not interested (or relevant to) the kovri meeting, anyone wanna help me test the zmq wallet\<-\>daemon interactions?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Proposed meeting items:  
+<strong>\<tewinget\></strong> oh  
+<strong>\<tewinget\></strong> shit  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 1. Greetings  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 2. Brief review of what’s been completed since the previous meeting  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 3. Code + ticket discussion / Q &amp; A  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 4. Discuss \#282  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 5. Closing \#226  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 6. Closing \#105  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 7. Closing \#46  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 8. Closing \#27  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 9. Any additional meeting items  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 10. Confirm next meeting date/time  
+<strong>\<meeting-bot\> \[anonimal\]</strong> btw, twinget, you are \*all\* relevant to the meeting and you \*ALL\* should be interested.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Its that kind of attitude that is preventable advancing kovri development within monero.  
+<strong>\<fluffypony\>\></strong> +100  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 1. Greetings  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Hi, I’m here.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> me three  
+<strong>\<tewinget\>\></strong> anonimal (I’m not relevant in the sense that I have no context, need to learn more about it :))  
+<strong>\<i2p-relay\> {-solmar}\></strong> we need all the help we can get  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> EinMByte ?  
+<strong>\<ArticMine\>\></strong> I will stay for another 20 min then I have to leave.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> tks ArticMine  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Hi ArticMine.  
+<strong>\<ArticMine\>\></strong> Hi  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Hi solmar, EinMByte, fluffypony.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 2. Brief review of what’s been completed since the previous meeting  
+<strong>\<meeting-bot\> \[anonimal\]</strong> $ git checkout master &amp;&amp; git log —pretty=oneline —no-merges —since=2016-07-31 \| wc -l  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 55  
+<strong>\<meeting-bot\> \[anonimal\]</strong> - Lots of build work  
+<strong>\<meeting-bot\> \[anonimal\]</strong> - Reinstate FreeBSD build  
+<strong>\<meeting-bot\> \[anonimal\]</strong> - Reinstate Clang support  
+<strong>\<meeting-bot\> \[anonimal\]</strong> - New config features  
+<strong>\<meeting-bot\> \[anonimal\]</strong> - New logging features  
+<strong>\<meeting-bot\> \[anonimal\]</strong> - Implemented SNI (part of cpp-netlib)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I’m doing work in branch fix-305, not detailed here.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> We have a new member onbard, ‘solmar’. guzzi is back with us too.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> rakhimov is becoming more active, all great.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I hope EinMByte’s travels have been well and has returned.  
+<strong>\<meeting-bot\> \[solmar\]</strong> hey all ;)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Did I miss anything for point 2.?  
+<strong>\<fluffypony\></strong> well  
+<strong>\<fluffypony\></strong> is it worth discussing \#325 now?  
+<strong>\<meeting-bot\> \[solmar\]</strong> the quality assurance document is note worthy but i think you got everything  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: no not yet.  
+<strong>\<fluffypony\></strong> ok  
+<strong>\<meeting-bot\> \[anonimal\]</strong> solmar: thanks, good point. Yes solmar and I reworked \#58 and introduced it into a tangible guide.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Anything on 2. before moving onto 3.?  
+<strong>\<fluffypony\></strong> nothing more on 2  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Before 3., did solmar want to formally introduce themself?  
+<strong>\<meeting-bot\> \[solmar\]</strong> sure i can quickly introduce  
+<strong>\<meeting-bot\> \[solmar\]</strong> you guys may have seen me kicking around the various monero-related channels in the past few weeks. monero has peaked great interest in me and moving forward will be quite powerful  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> Welcome :)  
+<strong>\<meeting-bot\> \[solmar\]</strong> i am switching focus to kovri because of how unmanned the team is but in the next week i would gladly help test ringct code on the testnet  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> +1  
+<strong>\<tewinget\></strong> s/peaked/piqued/ \<— fuck English sometimes  
+<strong>\<meeting-bot\> \[solmar\]</strong> in the meantime i will continue to learn the kovri code to hopefully in the near future begin to make tangible contributions to the code  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> awesome, everyone should dabble in both  
+<strong>\<meeting-bot\> \[solmar\]</strong> any interest and help with kovri is greatly appreciated  
+<strong>\<meeting-bot\> \[solmar\]</strong> i think we can move along to 3. now thanks anominal ;)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Alright, thanks solmar.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 3. Code + ticket discussion / Q &amp; A  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I’ll open  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> some of the design decisions in Kovri were influenced by Monero, so no getting away from it, Monero devs ;)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Question: WHEN WILL MONERO DEVS START TAKING KOVRI SERIOUSLY?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 10 months in now since our november 1st meeting,  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> Define “taking seriously” ? Send patches ?  
+<strong>\<tewinget\></strong> anonimal: I take it just as seriously as, say, RingCT, I just haven’t had/taken the time to dig into either yet :)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> As a whole, if I could quantify contributions, I’d say kovri is getting \~5% attention to what bitmonero and ecosystem is getting.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> moneromooo: anything.  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> OK, fair enough. A new codebase appearing like that is going to be not so easy to jump back and forth for coders. But I hear your point.  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> I will try to get into kovri a bit once rct is all done.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I understand all the arguments, and I know what sacrifices would need to be made, so I question when and if they will be made.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Thanks moneromooo.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> the easiest way to get hyc involved it for us to use LMDB for storage of something :-P  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> (and feel free to remind me of it if I don’t :P)  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> Nah, use liblber for network.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: this goes for you too, as we’ll see with the remaining agenda items.  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> Make us fast and secure comms\!  
+<strong>\<tewinget\></strong> fluffypony: in the same way as with hyc, the easiest way to get me involved is something needing refactored \>\_\>  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Anyone else over there have a response beside moneromooo and tewinget?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> If not, we should move onto other Q &amp; A.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> is this still the ticket discussion part?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Point 3.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> yes - but I mean ticket discussion is part of Q&amp;A or can I bring up a ticket now?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I have library questions I would want to debate with EinMByte but I don’t think he’s around.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Sure but that’s least priority at the moment.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> And should be 9.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I’d rather move onto 4. if no one has any questions.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> kk  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 4. Discuss \#282  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok so  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> There was a designer guy asking whether help was wanted. He seemed to be after paid work though.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> with the Monero logo we used 99designs  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> eherdesign in \#monero  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> moneromooo: I looked at his stuff, it wasn’t mind-blowing  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> I’d like to move to use 99designs again  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ref: <https://99designs.com/logo-design/contests/monero-mro-cryptocurrency-logo-design-contest-382486>  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> I’m happy to put the $500 up for that, and then use the FFS to get it back  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> unless anyone feel we must go for a higher 99designs reward  
+<strong>\<othe\></strong> i would also sponsor that  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> \_ hopes it won’t be some shady looking concept  
+<strong>\<meeting-bot\> \[i2p-relay\] {-ArticMine}</strong> It worked very well for Monero so I say yeas with the same package  
+<strong>\<meeting-bot\> \[i2p-relay\] {-ArticMine}</strong> yes  
+<strong>\<meeting-bot\> \[solmar\]</strong> maidsafe also appears to be having success with 99designs so i think it is a good idea  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok - I’ll set that up now - do we have any ideas as to what we want to convey?  
+<strong>\<meeting-bot\> \[i2p-relay\] {-ArticMine}</strong> Well I have to leave now  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> do we want it to be inspired by the Monero logo, like the MRL logo is?  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> The essential qualities of garlic.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> (ref: <https://lab.getmonero.org/logo.png>)  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> ^ great logo  
+<strong>\<groeg\></strong> (noob here …) A podcast I follow have a promo code för 99designs. Interesting?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> groeg: yes plz, can you PM it to me?  
+<strong>\<cjd\></strong> you’ll want to pm it to fluffypony, not to the bot  
+<strong>\<cjd\></strong> he’s in this irc  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> Actually… you could rotate the Monero logo 90% clockwise and arrange colors a bit so it looks like a K. With kind of a hidden M.  
+<strong>\<groeg\></strong> newbie using IRC, looking up how to pm …  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> groeg: /query NICKHERE  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> thanks groeg, got it  
+<strong>\<meeting-bot\> \[solmar\]</strong> conveying a “veil”-ish esque style to it could be interesting, since kovri means veil in esperanto afaik  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> 90 degrees, not %, of course -\_-  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> solmar that’s pretty much what I was thinking, something along the lines of a network, but it’s private  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> or something  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> doesn’t have to be a “veil” in the literal sense  
+<strong>\<meeting-bot\> \[solmar\]</strong> ya  
+<strong>\<meeting-bot\> \[solmar\]</strong> i agree  
+<strong>\<meeting-bot\> \[solmar\]</strong> ya exactly  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Sorry, unexpected AFK emergency, unavoidable.  
+\*\*\<meeting-bot\> \_ anonimal\*\* reading  
+<strong>\<meeting-bot\> \[anonimal\]</strong> moneromooo: cool idea, maybe someone can run with that.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> anonimal: the rotated K thing?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> I can suggest that in the 99designs description  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Yeah, but maybe not literally, just an artistic motive I guess.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> yeah  
+<strong>\<meeting-bot\> \[anonimal\]</strong> But also garlic is a good point as solmar pointed out.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> isn’t garlic very Tor?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> So a rotated K inside a garlic clove  
+<strong>\<meeting-bot\> \[anonimal\]</strong> No, they’re onion.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> oh yes  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> my bad  
+<strong>\<meeting-bot\> \[anonimal\]</strong> onion router similar to garlic routing.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Meh, its practically the same vegetable.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> lo  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> lol  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> we should go wild and create spinach routing  
+<strong>\<meeting-bot\> \[anonimal\]</strong> lol  
+<strong>\<meeting-bot\> \[anonimal\]</strong> “Kovri provides essential iron and vitamins”  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> <http://paulkieschedesign.com/blog/wp-content/uploads/2011/12/shandong-logo.jpg> \<- perfect  
+<strong>\<meeting-bot\> \[anonimal\]</strong> “Eat kovri today”  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> the name, not the logo  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> so for a previous April 1 we renamed Monero to DarkFlarb, so I move that for next year April 1 we rename Kovri to Shandong  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ShanDong  
+<strong>\<meeting-bot\> \[anonimal\]</strong> The ShanDong I2P Router project… hmm…  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: how do we keep track of \#282?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> lol  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> anonimal: othe and I will set it up and update in-ticket  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: thanks.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Anything else on \#282?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> nada  
+<strong>\<meeting-bot\> \[anonimal\]</strong> If we use a dog somewhere in there, and Shandong, we should go with a pug.  
+<strong>\<groeg\></strong> shandong = 山东 = mountain east  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> TIL  
+<strong>\<meeting-bot\> \[anonimal\]</strong> The eastside rugged pug.  
+<strong>\<groeg\></strong> (literal meaning of the characters)  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> east mountain pugs unite  
+<strong>\<meeting-bot\> \_ anonimal</strong> see dog flip gang symbol with fingers  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> DogeI2P  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Here we go, lol  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ok, 5. Closing \#226  
+<strong>\<meeting-bot\> \[anonimal\]</strong> This is useful when: 1) i2p-relay is down 2) slack is not available or people aren’t signed up nor want to sign up  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I’ve registered the channels and am idling.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok so  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> are we happy running this under the core relay and not the community relay?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> By community you mean the one in \#monero/\#monero-dev?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> the community one is the one that needmoney90 runs, to Slack / Telegram etc.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> the core one is i2p-relay  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> anonimal: is there a \#tahoe-lafs on OFTC?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> because I don’t want to take tahoe-lafs out the relay list, necessarily  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: yes, with 4 people, no channel topic. Doesn’t look official.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok then I’ll just relay it, tough for them  
+<strong>\<meeting-bot\> \[anonimal\]</strong> They will probably enjoy it.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> indeed  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok I’ll do that right now  
+<strong>\<meeting-bot\> \[anonimal\]</strong> So this would be for i2p-relay?  
+<strong>\<meeting-bot\> \_ anonimal</strong> so many relays, so confused  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> lol  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> What’s \#tahoe-lafs relation with kovri btw ?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> moneromooo: Nothing really aside from an i2p plugin available to use with tahoe-lafs, AFAIK  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: if you’re doing it right now, I’ll wait.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> moneromooo: they asked me to run a relay, as their relay has disappeared  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Damn, it’s been an hour. Do we continue?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> yes - we started late  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> I think it’s mostly up to you, the main kovri person.  
+<strong>\<meeting-bot\> \_ anonimal</strong> didn’t want to stop on necessary bitmonero business  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: do you have to restart the relay? Is \#226 resolved?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> the bouncer is connected  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> sec  
+<strong>\<theRelay\_\_\> \<fluffypony&#64;OFTC\></strong> testing  
+<strong>\<fluffypony\></strong> testing back  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> and from here  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> meeting-bot might be interfering with it a little, so I’ll fiddle with it after I’ve killed meeting-bot  
+<strong>\<meeting-bot\> \[anonimal\]</strong> It’s only me and the bot on OFTC  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Is fluffypony&#64;OFTC actually fluffypony&#64;Freenode ?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> no I don’t know - I need to check if it’s relaying between all 3, and can’t do that with meeting-bot online  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> coz meeting bot is also relaying  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ok, can we quickly review the remaining items?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> sure  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 6. Closing \#105  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Hmm, tricky.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> sorry internet is slow  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok so  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> the moneroworld instance is up  
+<strong>\<meeting-bot\> \[anonimal\]</strong> <https://social.moneroworld.com> went online but admin has not responded to anything in a month  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> hmmm  
+<strong>\<meeting-bot\> \[anonimal\]</strong> There were multiple issues, probably still are, that would need to be resolved before we go officially public.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok then I think leave it open  
+<strong>\<meeting-bot\> \[anonimal\]</strong> But it’s not kovri-related.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> That’s what annoys me. We have a forum post open for it.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> And there’s also that /bitmonero ticket open  
+<strong>\<meeting-bot\> \_ anonimal</strong> fetches  
+<strong>\<meeting-bot\> \[anonimal\]</strong> \#903  
+<strong>\<DaveyJones\></strong> gingeropolous aint that your site?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> anonimal: do we want a common gnu-social for the two?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> or separate?  
+<strong>\<gingeropolous\></strong> wut?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I thought it would be an umbrella instance, more of a ‘pro-decentralization’ initiative not specific to kovri or bitmonero.  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> <https://social.moneroworld.com> \<- your site ?  
+<strong>\<gingeropolous\></strong> oh, DaveyJones , no… i just pay for the domain name and put it on afraid.org so anyone can create subdomains for free  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I’ve already signed up for @kovri and @anonimal at quitter.se in case this issue was never resolved.  
+<strong>\<meeting-bot\> \[i2p-relay\] {-moneromooo}</strong> Oh, that’s nice idea.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> let’s leave it open and prod the guy again  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> if we hear nothing by next dev meeting we re-host from scratch  
+<strong>\<meeting-bot\> \[anonimal\]</strong> quitter.se is nice aside from the psychopath/bot with the sickle and hammer avatar that spams the feed like there is no tomorrow.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ok, I’ll make a note.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 7. Closing \#46  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> I’m moving registrars for all critical domains, including getkovri.org  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> which is affecting that and the other one  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> (the increased attention means an increase of people poking at our infrastructure, hence the move)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ah, ok. How is content coming along? Did you get that rough draft finished?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> should be done by next meeting, and I’ll push the Kovri page to the Monero website in the next week so that we can open it up to the community to work on it  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> it’s in a sub-section of its own  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> so it can have as much content as required  
+<strong>\<meeting-bot\> \[EinMByte\]</strong> nice, didn’t know we were getting a website  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Alright, I’ll make a note.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> EinMByte: I was going to do it in Geocities, but anonimal convinced me not to  
+<strong>\<meeting-bot\> \[EinMByte\]</strong> (then again, I probably missed a lot)  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> snow flake mouse cursors are the bomb  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Yeah, fluffypony has yet to learn the finer points of 90’s webdev.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> fo sho  
+<strong>\<meeting-bot\> \[anonimal\]</strong> We’re working on that.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> Backstreet Boys backgrounds everywhere  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Once we get a logo, the site should look snazzy.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> ‘Kovri’s back, alright\!’  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> hah hah  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ok, 8. Closing \#27  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ah, looks like we’ve had some activity there lately.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Looks like two issues now. So, 1) updates on zoho? 2) should we ever have a mailing list?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> can’t proceed with Zoho till the domain move is done, but that’s basically setup  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> I don’t think mailing lists are necessary  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> we already have stuff scattered everywhere, another avenue will just make dissipate it more  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Agreed.  
+<strong>\<meeting-bot\> \[EinMByte\]</strong> ever ? maybe, now ? no  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: ETA on domain move completion (or did you already say?… /me reads)?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> anonimal: by next meeting  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> if it’s done sooner then great  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ok, great. Once that’s resolved we can resolve the HackerOne issue.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Which will be another avenue for more attention.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I’ll make a note in \#27.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Anything else on \#27?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> nope that’s it for now  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 9. Any additional meeting items  
+<strong>\<meeting-bot\> \[anonimal\]</strong> EinMByte, how goes it?  
+<strong>\<guzzi\></strong> present fgi  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Hi guzzi.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> guzzi: anything you wanted to add to the meeting?  
+<strong>\<guzzi\></strong> glad to be a back. learning a lot.  
+<strong>\<meeting-bot\> \[EinMByte\]</strong> anonimal: Hopefully some work on SSU soon  
+<strong>\<meeting-bot\> \[anonimal\]</strong> EinMByte: I had thoughts and questions on library design if you’re around after the meeting  
+<strong>\<meeting-bot\> \[EinMByte\]</strong> Sure  
+<strong>\<guzzi\></strong> looking to focus more on kovri since it has the least devs and is more easy to peneatrate into development.  
+<strong>\<guzzi\></strong> still getting up to speed.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> EinMByte: nice, I look forward to the day we merge that branch.  
+<strong>\<meeting-bot\> \[EinMByte\]</strong> guzzi: If you’re looking for easy stuff to get used to the code, tests and documentation are very much needed so that might be a good idea  
+<strong>\<meeting-bot\> \[anonimal\]</strong> guzzi: ok, if you have any questions, feel free to shout out.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> solmar: ^ what EinMByte said too if interested.  
+<strong>\<guzzi\></strong> EinMByte, thanks on it.  
+<strong>\<guzzi\></strong> i will look for todos.  
+<strong>\<guzzi\></strong> an prs on that  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: you wanted to talk about \#325?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> oh - not necessarily, it was more to find out if it needed discussion  
+<strong>\<meeting-bot\> \[solmar\]</strong> i’ll check it out thanks ;)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: I think \#325 is more of a ‘po-tey-to’ ‘po-tah-to’ kind of issue  
+<strong>\<meeting-bot\> \[anonimal\]</strong> and a possible solution is ‘let’s call the whole thing off’.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I’ll figure itself out.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Anything else on 9.? Any more meeting items?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> With organizational things out of the way, the next meeting can be far more codebase-orieted.  
+<strong>\<meeting-bot\> \[anonimal\]</strong> \*oriented  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> kk  
+<strong>\<meeting-bot\> \[anonimal\]</strong> 10. Confirm next meeting date/time  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> <https://99designs.com/logo-design/contests/create-beautiful-logo-kovri-privacy-enhancing-open-source-652257/entries>  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> <https://99designs.com/logo-design/contests/create-beautiful-logo-kovri-privacy-enhancing-open-source-652257/brief> that thing  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: nice  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> k next meeting, same time, same place, 2 weeks  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Where’s the ‘optional dog’ button?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> Two Weeks (tm)  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Do we have to do 2 weeks?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> you want to do longer?  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> or shorter?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> I mean, I guess it depends on who is involved. If it’s the usual, then I’d say 1 month.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> guzzi / solmar / EinMByte - thoughts ?  
+<strong>\<meeting-bot\> \[EinMByte\]</strong> We can discuss some of the more technical things separately  
+<strong>\<guzzi\></strong> 1 mo fine. i will be on irc for technical things. still playing catch up.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> ok  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> then we do it in 4 weeks, same time as the meeting after next Monero dev meeting?  
+<strong>\<meeting-bot\> \[solmar\]</strong> 1 month is fine  
+<strong>\<meeting-bot\> \[solmar\]</strong> i’ll be around as often as i can  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Same time is fine with me.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> thankyouverymuch\!  
+<strong>\<meeting-bot\> \[anonimal\]</strong> Ok, thanks everyone.  
+<strong>\<meeting-bot\> \[fluffypony\]</strong> can I kill meeting-bot?  
+<strong>\<meeting-bot\> \[anonimal\]</strong> fluffypony: swift and painless if possible.  
+\*\*\<meeting-bot\> \[anonimal\]\*\* She need not suffer.
