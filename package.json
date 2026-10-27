@@ -10,9 +10,9 @@
   },
   "packageManager": "pnpm@10.30.1",
   "devDependencies": {
-    "htmlhint": "^1.9.1",
-    "lefthook": "^2.1.1",
-    "prettier": "3.8.1"
+    "htmlhint": "^1.9.2",
+    "lefthook": "^2.2.2",
+    "prettier": "3.9.10"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
