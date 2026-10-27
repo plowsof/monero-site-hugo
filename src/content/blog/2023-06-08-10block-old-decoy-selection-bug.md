@@ -36,11 +36,11 @@ When the paper's recommendation [was first implemented in Monero v0.13.0.0](http
 
 ### The Off-By-One Bug
 
-Before picking decoys for a new transaction, the wallet grabs the cumulative distribution of outputs across the blocks for the entire chain using the RPC command /get_output_distrubution.bin. To prevent the gamma picker from picking decoys from blocks that are younger than ten blocks, [an \"end\" pointer is calculated](https://github.com/monero-project/monero/blob/35e0a968bde4644a86f6f455b1a50ca25398fa15/src/wallet/wallet2.cpp#L970) which bounds the chain information that the gamma picker considers. You can see that the calculation does not consider the last 10 blocks (the block unlock time) of chain information. However, since a newly created transactions will not enter the current highest block, but the next future block, the newest information considered at the time of transaction construction is actually 11 blocks older than the next future block (which ostensibily a new transaction will reside in).
+Before picking decoys for a new transaction, the wallet grabs the cumulative distribution of outputs across the blocks for the entire chain using the RPC command /get\_output\_distrubution.bin. To prevent the gamma picker from picking decoys from blocks that are younger than ten blocks, [an "end" pointer is calculated](https://github.com/monero-project/monero/blob/35e0a968bde4644a86f6f455b1a50ca25398fa15/src/wallet/wallet2.cpp#L970) which bounds the chain information that the gamma picker considers. You can see that the calculation does not consider the last 10 blocks (the block unlock time) of chain information. However, since a newly created transactions will not enter the current highest block, but the next future block, the newest information considered at the time of transaction construction is actually 11 blocks older than the next future block (which ostensibily a new transaction will reside in).
 
 However, wallets will still construct transactions with owned ring members that are exactly 10 blocks old. If all wallets adhere to this flawed logic, then the only time an 10-block old ring member will show up in a transaction is if it is the true spend. This heuristic would be devastating for sender anonymity with 10-block old true spends.
 
-The bug was patched in PR [#8794](https://github.com/monero-project/monero/pull/8794).
+The bug was patched in PR [\#8794](https://github.com/monero-project/monero/pull/8794).
 
 ### Empirical Analysis
 

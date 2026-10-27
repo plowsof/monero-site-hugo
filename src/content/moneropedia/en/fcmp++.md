@@ -5,6 +5,8 @@ terms:
   - fcmp
   - fcmp-plus-plus
   - full-chain-membership-proofs
+# URL as on the Astro site, which dropped the "+"s
+slug: fcmp
 ---
 
 ### The Basics

@@ -11,6 +11,10 @@ on:
 permissions:
   contents: read
 
+env:
+  HUGO_VERSION: "0.167.0"
+  YAMLFMT_VERSION: "0.21.0"
+
 jobs:
   lint:
     name: Lint & Format
@@ -20,39 +24,81 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Check set:html safety
+      - name: Check unescaped HTML
+        # safeHTML & co. switch off escaping. They are allowed only for tag
+        # wrappers (printf "<%s...") and in the reviewed helpers/render hooks
+        # below; translation strings go through helpers/markdown, which sanitizes.
         run: |
-          if grep -r "set:html" src --include="*.astro" | grep -Ev "set:html=\{(safeMarkdown\.|DOMPurify\.sanitize)"; then
-            echo "Error: Found set:html usage without safeMarkdown or DOMPurify.sanitize"
+          if grep -rnE 'safe(HTML|HTMLAttr|JS|CSS|URL)\b' layouts \
+            | grep -vE '^layouts/(_partials/helpers/(attrs|markdown|moneropedia-content)\.html|_markup/render-(link|image)\.html|all\.enredirect\.html):' \
+            | grep -vE 'printf "</?%s(%s)?>"' \
+            | grep -vE 'htmlEscape'; then
+            echo "Error: unescaped output outside the reviewed places (see above)"
             exit 1
           fi
-          echo "All set:html usages are safe"
+          echo "All unescaped output is in reviewed places"
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v5
+      - name: Check component styles are scoped
+        run: python3 scripts/check-scoped-css.py
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - name: Check CSS formatting
+        run: python3 scripts/check-css-format.py
+
+      - name: Check YAML formatting
+        run: |
+          base="https://github.com/google/yamlfmt/releases/download/v${YAMLFMT_VERSION}"
+          tarball="yamlfmt_${YAMLFMT_VERSION}_Linux_x86_64.tar.gz"
+          curl -sSLO "$base/$tarball"
+          curl -sSLO "$base/checksums.txt"
+          grep " $tarball\$" checksums.txt | sha256sum -c
+          tar -xzf "$tarball" yamlfmt
+          ./yamlfmt -lint
+
+      - name: Check JSON files are valid and formatted
+        # translations are left to Weblate; everything else is kept in jq's format
+        run: |
+          status=0
+          for f in $(git ls-files '*.json' ':!src/i18n/translations/**'); do
+            if ! jq . "$f" | diff -q - "$f" > /dev/null; then
+              echo "::error file=$f::not valid JSON or not formatted (fix with: jq . $f > tmp && mv tmp $f)"
+              status=1
+            fi
+          done
+          for f in $(git ls-files 'src/i18n/translations/**/*.json'); do
+            jq empty "$f" || { echo "::error file=$f::not valid JSON"; status=1; }
+          done
+          exit $status
+
+  css-lint:
+    name: Lint CSS (Stylelint)
+    if: github.event_name != 'release' || github.event.release.target_commitish == 'beta'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
         with:
-          node-version: "22"
-          cache: "pnpm"
+          fetch-depth: 0
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: ESLint - TypeScript validity
-        run: pnpm lint
-
-      - name: Stylelint - CSS compatibility
-        run: pnpm lint:css
-
-      - name: Prettier - Code formatting
-        run: pnpm format:check
-
-      - name: Type check
-        run: pnpm check
+      # Stylelint with stylelint-config-standard, as on the Astro site, run from
+      # Super-Linter's container (no Node.js in this repository). The rules are
+      # in .github/linters/.stylelintrc.json; to run it locally, see
+      # docs/how-to-style-your-page-contents.md.
+      - name: Stylelint
+        uses: super-linter/super-linter/slim@2da136927bd4a73596db63044b504547c62cb854 # v9.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_CSS: true
+          CSS_FILE_NAME: .stylelintrc.json
+          FILTER_REGEX_INCLUDE: assets/css/.*
+          # a Hugo template, not plain CSS
+          FILTER_REGEX_EXCLUDE: assets/css/base/fonts.css
+          MULTI_STATUS: false
 
   reproducible-archive:
+    # Build the site twice and check both archives are byte-identical. On a
+    # release, the first run's archive is attached to the release.
     name: Reproducible Archive (Run ${{ matrix.run }})
     if: github.event_name != 'release' || github.event.release.target_commitish == 'beta'
     runs-on: ubuntu-22.04
@@ -66,27 +112,32 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v5
+      - name: Install Hugo
+        run: |
+          base="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
+          tarball="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl -sSLO "$base/$tarball"
+          curl -sSLO "$base/hugo_${HUGO_VERSION}_checksums.txt"
+          grep " $tarball\$" "hugo_${HUGO_VERSION}_checksums.txt" | sha256sum -c
+          tar -xzf "$tarball" hugo
+          sudo mv hugo /usr/local/bin/
+          hugo version
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      # processed images and preview cards from earlier runs; a release is
+      # built from scratch
+      - name: Cache processed images
+        if: github.event_name != 'release'
+        uses: actions/cache@v4
         with:
-          node-version: "22"
-          cache: "pnpm"
+          path: resources/_gen
+          key: hugo-gen-${{ env.HUGO_VERSION }}-${{ hashFiles('src/assets/**', 'src/content/**/*.png', 'src/content/**/*.jpg', 'src/content/**/*.svg', 'assets/images/**', 'assets/fonts/**') }}
+          restore-keys: hugo-gen-${{ env.HUGO_VERSION }}-
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Build site
+        run: hugo --gc
 
-      - name: Prepare source for CI/Release build
-        env:
-          BASE_BRANCH: ${{ github.event_name != 'release' && github.event.pull_request.base.ref || '' }} # PR target branch
-          BASE_REF: ${{ github.event_name == 'push' && github.event.before || '' }} # previous commit before the push event
-          LIMIT_POSTS: ${{ github.event_name != 'release' && '10' || '' }}
-          SKIP_IMAGE_OPTIMIZATION: ${{ github.event_name != 'release' && 'true' || '' }}
-          SKIP_OG: ${{ github.event_name != 'release' && 'true' || '' }}
-          LIMIT_LOCALES: ${{ github.event_name != 'release' && 'true' || '' }}
-        run: pnpm prepare-build && pnpm build
+      - name: Check the site has no JavaScript
+        run: python3 scripts/check-no-js.py dist
 
       - name: Create archive
         run: |

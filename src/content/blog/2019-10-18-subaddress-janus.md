@@ -29,7 +29,7 @@ To give another example, suppose an attacker is given a subaddress deposit addre
 
 ### Technical explanation:
 
-You ask me to send funds to you at the subaddress (C_j, D_j). I suspect you have two identities, and that you also own subaddress (C_i, D_i). Instead of publishing the tx public key sD_j and output public key Hs(sC_j)G+D_j, I instead publish the tx public key sD_i and the output public key Hs(sC_i)G+D_j. You can't tell that I've done this, and it looks to you like I sent funds to you at your (C_j, D_j) subaddress. If you tell me you received the funds, I have now established that the (C_i, D_i) subaddress is in the same wallet and that you own both subaddresses within the same wallet (i.e. that they share the same private view key).
+You ask me to send funds to you at the subaddress (C\_j, D\_j). I suspect you have two identities, and that you also own subaddress (C\_i, D\_i). Instead of publishing the tx public key sD\_j and output public key Hs(sC\_j)G+D\_j, I instead publish the tx public key sD\_i and the output public key Hs(sC\_i)G+D\_j. You can't tell that I've done this, and it looks to you like I sent funds to you at your (C\_j, D\_j) subaddress. If you tell me you received the funds, I have now established that the (C\_i, D\_i) subaddress is in the same wallet and that you own both subaddresses within the same wallet (i.e. that they share the same private view key).
 
 ### Attack requirements:
 
@@ -47,7 +47,7 @@ Use separate wallets instead of separate subaddresses if you need to keep two di
 
 ### Notes:
 
-There are at least two known mitigations. Either we could encrypt the tx private key and send it as part of the transaction, or we could publish a Schnorr signature proving knowledge of the tx private key corresponding to the published tx public key, on the base point D_j. Doing either of these things would allow the recipient to verify that the incoming transaction is constructed properly. This mitigation would result in a slight increase in transaction size. Research on other possible mitigations is ongoing.
+There are at least two known mitigations. Either we could encrypt the tx private key and send it as part of the transaction, or we could publish a Schnorr signature proving knowledge of the tx private key corresponding to the published tx public key, on the base point D\_j. Doing either of these things would allow the recipient to verify that the incoming transaction is constructed properly. This mitigation would result in a slight increase in transaction size. Research on other possible mitigations is ongoing.
 
 This vulnerability requires an active attack involving sending funds to a wallet by the attacker. Passive non-colluding observers with knowledge of this vulnerability do not gain any advantage when attempting blockchain analysis to trace the movements of funds.
 

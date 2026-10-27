@@ -41,7 +41,7 @@ The Monero community would like to list several concerns with this research pape
 
 2.  We think further emphasis should have been placed in the paper to explain that the claims are only minimally applicable with the state of Monero transactions since March 2016, with the relevance decreasing over time. Though it is mentioned that their first analysis method has little if any current or future relevance, the claims still include these transactions. 0-mixin transactions were prohibited in March 2016, and most transaction volume for the year occurred during and after August. Nevertheless, many of these post-March transactions have inputs that can be deducible, but the traceability typically is not as severe as with 0-mixin transactions. The transactions that are most vulnerable are those in 2014 and 2015, as well as some time needed for the network to recover.
 
-3.  Under the "ethics" section, they state that the paper was published immediately before countermeasures could be deployed. While this is understandable from the given perspective that the blockchain history is not going away anytime soon (or ever), we wish that they had given us an advance copy of the finished draft so that we could have discussed our concerns with the report itself. We wish not to censor any of the research (instead, we encourage research!); however, we hope that future care can be taken before the release of misleading assertions.
+3.  Under the "ethics" section, they state that the paper was published immediately before countermeasures could be deployed. While this is understandable from the given perspective that the blockchain history is not going away anytime soon (or ever), we wish that they had given us an advance copy of the finished draft so that we could have discussed our concerns with the report itself. We wish not to censor any of the research (instead, we encourage research\!); however, we hope that future care can be taken before the release of misleading assertions.
 
 4.  Andrew Miller was named in the paper as a consultant to the Zerocoin Electric Coin Company and a board member of the ZCash Foundation. ZCash is a cryptocurrency with a focus on privacy that uses different technology than Monero. However, [he downplayed his involvement in an interview](https://cointelegraph.com/news/monero-transactions-history-can-be-revealed-and-exposed-research) about this paper. We feel author involvement in cryptocurrencies with similar interests should be fully disclosed, though he did refer people to the first page of the report. Nevertheless, we feel that Miller's disclosure of his contribution to a competing project was unsatisfactory, given the severity of the allegations in the paper.
 
@@ -61,13 +61,13 @@ The Monero community would like to list several concerns with this research pape
 
 We appreciate the effort that went into this research paper, but we suggest the following changes for later improvements:
 
-1.  A re-evaluation of recommendation #3.
+1.  A re-evaluation of recommendation \#3.
 
 2.  A consideration among 0-mixin transactions for pool payouts.
 
 3.  A clearer explanation of claims made in the paper, with separations for the history of all transactions and those used since March 2016. It is disappointing to treat the blockchain data as static when the technology has evolved significantly since Monero's launch.
 
-4.  Future drafts to be shared with the Monero Core Team before release. Their contact information is [dev@getmonero.org](mailto:dev@getmonero.org).
+4.  Future drafts to be shared with the Monero Core Team before release. Their contact information is [dev&#64;getmonero.org](mailto:dev@getmonero.org).
 
 5.  Be more conservative sharing the results. We understand that the authors have an incentive to share the results with others and we also want them to be shared, but we ask that they refrain from using misleading claims to gather traffic (see appendix for example).
 
@@ -75,18 +75,18 @@ We appreciate the effort that went into this research paper, but we suggest the 
 
 ### Appendix
 
-**Figure 5 from the report showing the fraction of deducible inputs. Notice the large drops following block height 1,000,000, when 0-mixin transactions were prohibited. Furthermore, these inputs likely do not include all those used in a single transaction. For instance, for a mixin 9 transaction, 5 may be deduced. This means that the inputs would be reported here as deducible, even if the transaction is not traceable.**
+<strong>Figure 5 from the report showing the fraction of deducible inputs. Notice the large drops following block height 1,000,000, when 0-mixin transactions were prohibited. Furthermore, these inputs likely do not include all those used in a single transaction. For instance, for a mixin 9 transaction, 5 may be deduced. This means that the inputs would be reported here as deducible, even if the transaction is not traceable.</strong>
 
 ![figure5](./assets/linkability-response/figure5.jpg)
 
-**Table 2 from the report showing the proportion of transactions with a positive mixin that can be deduced. We want to make clear that the findings of this chart and analysis method have absoutely zero relevance to RingCT transactions.**
+<strong>Table 2 from the report showing the proportion of transactions with a positive mixin that can be deduced. We want to make clear that the findings of this chart and analysis method have absoutely zero relevance to RingCT transactions.</strong>
 
 ![table2](./assets/linkability-response/table2.jpg)
 
-**Table 3 from the report showing the proportion of deducible transactions where the real input is also the most recently used one in the transaction.**
+<strong>Table 3 from the report showing the proportion of deducible transactions where the real input is also the most recently used one in the transaction.</strong>
 
 ![table3](./assets/linkability-response/table3.jpg)
-**Examples of statements we find misleading**
+<strong>Examples of statements we find misleading</strong>
 
 This is a tweet from a contributor to the paper.
 

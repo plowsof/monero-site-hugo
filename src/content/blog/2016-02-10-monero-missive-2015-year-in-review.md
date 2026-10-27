@@ -21,7 +21,7 @@ author: Riccardo Spagni (fluffypony)
 forum: https://forum.getmonero.org/1/news-announcements-and-editorials/2481/monero-missive-special-edition-2015-year-in-review
 ---
 
-Hello, and welcome to a special edition of the Monero Missives: the 2015 Year in Review!
+Hello, and welcome to a special edition of the Monero Missives: the 2015 Year in Review\!
 
 As you may know (or may not know:) we had an extremely busy January, which has led to this Missive taking its sweet time in being finalised.
 
@@ -31,17 +31,17 @@ The past year has been an interesting one for Monero. There was something of a r
 
 ![Project Stats 2015 Overview](./assets/2015-year-in-review/stats.jpg)
 
-**Governance**
+<strong>Governance</strong>
 
 Over the course of 2015 we have considered Monero's governance model. In the context of cryptocurrencies and consensus systems, the term "governance" seems to be quite taboo. However, for anyone that has ever been involved in an open-source project, a lack of governance is as good as a death knell. An [excellent article](http://oss-watch.ac.uk/resources/governancemodels) on governance models is maintained by OSS Watch, and they point out the reason for this:
 
 > There are almost as many variations of open source management strategies as there are open source projects. It is therefore critical that a project clearly communicates its policies and strategies to potential users and developers of the project’s outputs. A clear governance model also allows potential contributors to understand how they should engage with the project, what is expected of them and what protections are provided to ensure that their contributions will always be available to them. In addition, it describes the quality control processes that help to assure potential users of the viability of the project. The development and communication of a clear and concise governance model is one of the most important steps a project can take towards sustainability through open development.
 
-Of course, we are primarily talking about the governance of the open-source project (ie. the source code in the [monero-project](https://github.com/monero-project/bitmonero) repositories and associated systems and structures). The Monero network itself cannot be governed, and as has already happened just after Monero's launch, the project can be forked and effectively taken over if the core project is no longer considered viable. If that is the case, why bother with governance at all? Over and above the reasons mentioned in the OSS Watch article, it is important to prevent a gridlock in decision making. There are going to be decisions in Monero's future that will be extremely difficult to make, and if there's no clear path as to _how_ they can be made then the project is very unlikely to grow.
+Of course, we are primarily talking about the governance of the open-source project (ie. the source code in the [monero-project](https://github.com/monero-project/bitmonero) repositories and associated systems and structures). The Monero network itself cannot be governed, and as has already happened just after Monero's launch, the project can be forked and effectively taken over if the core project is no longer considered viable. If that is the case, why bother with governance at all? Over and above the reasons mentioned in the OSS Watch article, it is important to prevent a gridlock in decision making. There are going to be decisions in Monero's future that will be extremely difficult to make, and if there's no clear path as to <em>how</em> they can be made then the project is very unlikely to grow.
 
 When considering a governance model for Monero our main aim has been to find a balance between pure community consensus on the one hand, and the Core Team operating as "benevolent dictators for life" on the other. Neither of these governance models are desirable on their own, but there is a mixture of the two that we feel is well-suited to Monero. It is effectively the workflow we used last year when a decision had to be made on whether or not to change Monero's emission curve (ultimately it was decided against doing so); this is the workflow for decision making:
 
-- An idea is pitched by someone, whether via a Github issue, IRC in #monero-dev, the Monero Forum, or elsewhere, and discussion ensues. The preferred forums for discussion around an idea would be as a Github issue or a Monero Forum thread.
+- An idea is pitched by someone, whether via a Github issue, IRC in \#monero-dev, the Monero Forum, or elsewhere, and discussion ensues. The preferred forums for discussion around an idea would be as a Github issue or a Monero Forum thread.
 - If there are no major objections, or objections are responded to and the idea is refined accordingly, this will be deemed enough for "rough community consensus", or "lazy consensus". A good indicator of community consensus, in many instances, would be if it is an idea that requires funding, and the community successfully funds the effort.
 - In the event of the community being unable to reach general consensus on the matter within a reasonable period of time (typically a couple of weeks to a few months, dependent upon the complexity of the idea), the matter will be referred to the Core Team.
 - The Core Team will set a date for a meeting on the matter, normally to be held within a week or two. They will review all written material before the meeting.
@@ -64,17 +64,17 @@ In the absence of any vetoes, the votes are tallied, which gives both the result
 
 Our hope is that this process will prevent Monero from falling prey to "design by committee", but also prevent "design by Wikipedia" or "design by the person with the loudest mouth / most eloquent writing". This process is currently up for discussion and comment; please feel free to provide input on it.
 
-**Core Team**
+<strong>Core Team</strong>
 
 Due to the formalisation of the governance of the project, and the clarification of the Core Team's role as stewards, members of the Core Team are expected to be active on an ongoing basis. If a member of the Core Team cannot be regularly active, it is expected that they will step down from their role on the Core Team; the remaining members can elect to replace them if they wish.
 
-With that in mind, two members are no longer going to form part of the Core Team due to time constraints: _David Latapie_ and _eizh_. Both of them have been part of Monero since its inception and the formation of the Core Team. We are immensely grateful for their efforts in the past, and any efforts from them in the future.
+With that in mind, two members are no longer going to form part of the Core Team due to time constraints: <em>David Latapie</em> and <em>eizh</em>. Both of them have been part of Monero since its inception and the formation of the Core Team. We are immensely grateful for their efforts in the past, and any efforts from them in the future.
 
-We have also elected two new members to the Core Team: _Franciso "ArticMine" Cabañas_, and _luigi1111_. Francisco is based in Canada, and holds a PhD in Physics and brings extensive business and non-profit experience to the table. He has actively researched and invested in cryptocurrencies since 2011, and focuses on the economic, social, regulatory, and long-term viability aspects of cryptocurrencies. luigi1111 hails from the Midwestern United States and is a sysadmin by day. He has been actively involved in several cryptocurrencies since 2013, and loves cryptography, probability, and English grammar.
+We have also elected two new members to the Core Team: <em>Franciso "ArticMine" Cabañas</em>, and <em>luigi1111</em>. Francisco is based in Canada, and holds a PhD in Physics and brings extensive business and non-profit experience to the table. He has actively researched and invested in cryptocurrencies since 2011, and focuses on the economic, social, regulatory, and long-term viability aspects of cryptocurrencies. luigi1111 hails from the Midwestern United States and is a sysadmin by day. He has been actively involved in several cryptocurrencies since 2013, and loves cryptography, probability, and English grammar.
 
 We welcome them to the Core Team, and look forward to working with them both going forward.
 
-**Finances**
+<strong>Finances</strong>
 
 Our financial situation has dramatically changed with the introduction of the Forum Funding System (FFS). We still have core expenses, some of which include the servers hosting our infrastructure, our test / build hosted machines, annual domain registration for core / MoneroPulse / MoneroSeeds domains, LibSyn's hosting and syndication of our Missives podcast, CloudFlare's services, our GitHub micro plan, and so on. We are quite grateful for those that have continued to send donations to the core fund, and where possible we have also used those to kickstart Forum Funding System fundraisers.
 
@@ -96,33 +96,33 @@ We can safely say that the FFS has been a fantastic success thus far, and we hop
 
 The FFS exists in a centralised manner today, but in the future we hope to host it in a more decentralised fashion (eg. using Tahoe-LAFS) and couple it with future systems like MoneroID and MoneroTrust.
 
-**Donation Addresses**
+<strong>Donation Addresses</strong>
 
 For general housekeeping purposes we have decided to roll-over the donation addresses every so often, perhaps every year or two. Please take note of the new address details below. We have updated the donate.getmonero.org OpenAlias and other references, but pool operators and anyone else that auto-donates will need to update their systems accordingly. We will maintain the old addresses for some time, but will likely only check them sporadically and move any funds to the new addresses.
 
 Monero Donations: [44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A](monero:44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A?recipient_name=Monero%20Development&tx_description=Donation%20to%20Monero%20Core%20Team) (view key: f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501)  
 Bitcoin Donations: [1KTexdemPdxSBcG55heUuTjDRYqbC5ZL8H](bitcoin:1KTexdemPdxSBcG55heUuTjDRYqbC5ZL8H?label=Monero%20Development&message=Donation%20to%20Monero%20Core%20Team)
 
-**Design and Development Goals**
+<strong>Design and Development Goals</strong>
 
 During the course of 2015 we published a set of [Design and Development Goals](https://getmonero.org/design-goals/) focused not only on pure development, but also on research goals that the Monero Research Lab are pursuing. Typically the development goals are smaller, more immediate, and easier to achieve, whereas some of the research goals might not even be feasible, and others could take many years to find a suitable solution.
 
 Nevertheless, over the course of 2015 we managed to complete 7 of the development goals and 2 of the research goals:
 
-- _LMDB embedded database implementation_: the Lightning Memory-Mapped Database is the brainchild of Howard Chu, who has become quite actively involved in the Monero Project. Our implementation of LMDB in Monero has led to a truly massive reduction in memory usage of the daemon, down to well under 100mb of real memory in use, whilst still remaining exceptionally performant.
-- _Daemonize_: instead of being forced to run the Monero daemon in the foreground, this effort allows for it to fork to the background, but still be able to interact with and query the daemon. On Windows computers it can even install itself as a system service.
-- _BerkeleyDB fall-back database implementation_: initially this was added as an acid test for our generic blockchain database class, but proved useful when we hit LMDB issues on 32-bit and ARM systems (subsequently resolved).
-- _32-bit and ARM support_: we lost 32-bit support when the in-RAM database started requiring more than 4gb of RAM. Thankfully, our blockchainDB work, as well as the LMDB and BDB implementations, brought this back, and allowed us to add ARM support as a bonus!
-- _Various synchronisation improvements_: thanks to a vastly improved synchronisation mechanism a brand new Monero node can completely sync up with the network from scratch in as little as 45 minutes.
-- _ØMQ and TLS support for RPC_: currently only available in the development branch, this is part of a series of underlying changes that will make Monero far more extensible and flexible in the future, and will allow for more secure integration for merchants and other developers.
-- _Stealth & serialised payment IDs_: this started off as something that had to be researched and figured out, but thanks to some clever work by luigi1111 and others this is integrated in the 0.9 codebase.
-- _RingCT_: as mentioned in Academic Research section, this goal has been achieved, and the C++ code for it is nearing completion.
+- <em>LMDB embedded database implementation</em>: the Lightning Memory-Mapped Database is the brainchild of Howard Chu, who has become quite actively involved in the Monero Project. Our implementation of LMDB in Monero has led to a truly massive reduction in memory usage of the daemon, down to well under 100mb of real memory in use, whilst still remaining exceptionally performant.
+- <em>Daemonize</em>: instead of being forced to run the Monero daemon in the foreground, this effort allows for it to fork to the background, but still be able to interact with and query the daemon. On Windows computers it can even install itself as a system service.
+- <em>BerkeleyDB fall-back database implementation</em>: initially this was added as an acid test for our generic blockchain database class, but proved useful when we hit LMDB issues on 32-bit and ARM systems (subsequently resolved).
+- <em>32-bit and ARM support</em>: we lost 32-bit support when the in-RAM database started requiring more than 4gb of RAM. Thankfully, our blockchainDB work, as well as the LMDB and BDB implementations, brought this back, and allowed us to add ARM support as a bonus\!
+- <em>Various synchronisation improvements</em>: thanks to a vastly improved synchronisation mechanism a brand new Monero node can completely sync up with the network from scratch in as little as 45 minutes.
+- <em>ØMQ and TLS support for RPC</em>: currently only available in the development branch, this is part of a series of underlying changes that will make Monero far more extensible and flexible in the future, and will allow for more secure integration for merchants and other developers.
+- <em>Stealth &amp; serialised payment IDs</em>: this started off as something that had to be researched and figured out, but thanks to some clever work by luigi1111 and others this is integrated in the 0.9 codebase.
+- <em>RingCT</em>: as mentioned in Academic Research section, this goal has been achieved, and the C++ code for it is nearing completion.
 
 In many ways Monero's long-term design goals represent a fundamental shift in focus. Monero's primary use, at this point, is as a private store of value and medium of exchange. But since Monero has a global, decentralised, censorship-resistant timestamping database, there is a world of functionality that can be bolted on top. Thus, the aim with Monero is for it to become more than just a private cryptocurrency; we want Monero to become an entire suite of easy-to-use tools and systems designed to enhance personal privacy.
 
-**Releases**
+<strong>Releases</strong>
 
-During 2015 we kept our collective heads down, focusing on the gargantuan effort required to get the database implementation running smoothly and implement the MRL-0004 guidelines. This culminated in the release of Monero 0.9 _Hydrogen Helix_ on the first day of 2016. A full list of the changes can be found on the release page: https://github.com/monero-project/bitmonero/releases/tag/v0.9.0
+During 2015 we kept our collective heads down, focusing on the gargantuan effort required to get the database implementation running smoothly and implement the MRL-0004 guidelines. This culminated in the release of Monero 0.9 <em>Hydrogen Helix</em> on the first day of 2016. A full list of the changes can be found on the release page: <https://github.com/monero-project/bitmonero/releases/tag/v0.9.0>
 
 We'd like to extend our gratitude to the 19 contributors that invented, developed, hacked, wrote, tested, broke, fixed, and built Monero's core code over 2015: moneromooo-monero, warptangent, Thomas Winget, Riccardo Spagni, rfree, smooth, NoodleDoodle, Howard Chu, Sergey Kazenyuk, luigi1111, Shen Noether, Rostislav, Brendan Telzrow, Lex Kalinkin, sammy007, Wladimir van der Laan, David Vorick, roman, and meshpoint.
 
@@ -138,31 +138,31 @@ Over the year there were 904 commits made to the main Monero repository, plus qu
 | New Lines            | 12 706 | 263 288 | 275 994 |
 | Removed Lines        | 32     | 514     | 546     |
 
-**Academic Research**
+<strong>Academic Research</strong>
 
 The Monero Research Lab also had a busy 2015. Two main efforts were completed during the year:
 
-- _[MRL-0004: Improving Obfuscation in the CryptoNote Protocol](https://lab.getmonero.org/pubs/MRL-0004.pdf)_ - this was a major research effort that analysed the failures highlighted in [MRL-0001](https://lab.getmonero.org/pubs/MRL-0001.pdf), as well as uncovered some others, and presented a number of solutions to these. The solutions presented in MRL-0004 were incorporated in the Monero hardfork coming up in March, 2016.
-- _[MRL-0005: Ring Signature Confidential Transactions for Monero](https://lab.getmonero.org/pubs/MRL-0005.pdf)_ - based on [the excellent work of Bitcoin Core developer, Greg Maxwell](https://people.xiph.org/%7Egreg/confidential_values.txt), this couples Confidential Transactions with Monero's Ring Signatures, efficiently hiding transaction values on the blockchain, and thus crossing a major privacy threshold. Once implemented this will make Monero the first cryptocurrency in production and in use that cryptographically obscures transaction values, where the transaction inputs come from, and where the transaction outputs are going to.
+- <em>[MRL-0004: Improving Obfuscation in the CryptoNote Protocol](https://lab.getmonero.org/pubs/MRL-0004.pdf)</em> - this was a major research effort that analysed the failures highlighted in [MRL-0001](https://lab.getmonero.org/pubs/MRL-0001.pdf), as well as uncovered some others, and presented a number of solutions to these. The solutions presented in MRL-0004 were incorporated in the Monero hardfork coming up in March, 2016.
+- <em>[MRL-0005: Ring Signature Confidential Transactions for Monero](https://lab.getmonero.org/pubs/MRL-0005.pdf)</em> - based on [the excellent work of Bitcoin Core developer, Greg Maxwell](https://people.xiph.org/%7Egreg/confidential_values.txt), this couples Confidential Transactions with Monero's Ring Signatures, efficiently hiding transaction values on the blockchain, and thus crossing a major privacy threshold. Once implemented this will make Monero the first cryptocurrency in production and in use that cryptographically obscures transaction values, where the transaction inputs come from, and where the transaction outputs are going to.
 
-**Kovri**
+<strong>Kovri</strong>
 
 One of the areas that Monero has long been focusing on is disconnecting the link between a transaction and the IP address of the node that was first observed broadcasting it, as this information often reveals the IP address of the transaction originator. Severing this link is vital, and it is not merely enough to support this functionality optionally through networks like Tor; it needs to be native and an inherent part of the Monero protocol.
 
 With that in mind, our work with members of the I2P community has progressed from initially being involved with i2pcpp, to i2pd, and finally to an initiative from a few months ago: the Kovri I2P Router. Initially forked from a branch of i2pd, the Kovri project stands on its own in the Monero stable. It is not a mere side project, but a large fully fledged open-source project.
 
-Nearly 2300 commits from 37 contributors have lead to just under 30000 lines of code, and the effort is ongoing. You can follow Kovri's progress on the Github repo: [https://github.com/monero-project/kovri](https://github.com/monero-project/kovri)
+Nearly 2300 commits from 37 contributors have lead to just under 30000 lines of code, and the effort is ongoing. You can follow Kovri's progress on the Github repo: [https:&#47;/github.com/monero-project/kovri](https://github.com/monero-project/kovri)
 
-**Monero Website**
+<strong>Monero Website</strong>
 
-At the beginning of 2015 we opened the Monero Forum. But we didn't stop there - the Monero website was also overhauled and released as a brand new site, powered by Jekyll, with a look-and-feel matching the Monero Forum. The website is open-source and can be found here: [https://github.com/monero-project/monero-site](https://github.com/monero-project/monero-site)
+At the beginning of 2015 we opened the Monero Forum. But we didn't stop there - the Monero website was also overhauled and released as a brand new site, powered by Jekyll, with a look-and-feel matching the Monero Forum. The website is open-source and can be found here: [https:&#47;/github.com/monero-project/monero-site](https://github.com/monero-project/monero-site)
 
 Since its inception, the Monero website has had over 320 commits from 14 contributors. The community has been fantastic at supporting the initiative and helping shape the information on the site. As we roll out new tools to make contributing to the site even easier, we can only expect this to grow.
 
-**Looking Forward: 2016**
+<strong>Looking Forward: 2016</strong>
 
 We accomplished a great deal in 2015, with ever more to do. In 2016 we are hoping to tick more items off of our Design and Development Goals, and continue the slow and steady move towards Monero becoming a privacy suite.
 
-We hope you will continue with us on this journey, and we look forward to an excellent 2016!
+We hope you will continue with us on this journey, and we look forward to an excellent 2016\!
 
 Your Core Team - Riccardo "fluffypony" Spagni, luigi1111, NoodleDoodle, smooth, tacotime, Franciso "ArticMine" Cabañas, othe
