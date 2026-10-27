@@ -6,6 +6,7 @@
   gap: var(--space-xs);
   margin-top: var(--space-2xl);
 }
+
 .pagination-list[data-c-paginator] {
   display: flex;
   align-items: center;
@@ -14,6 +15,7 @@
   padding: 0;
   margin: 0;
 }
+
 .pagination-arrow[data-c-paginator],
 .pagination-page[data-c-paginator],
 .pagination-ellipsis[data-c-paginator] {
@@ -28,27 +30,33 @@
   color: var(--heading-color);
   transition: background-color 0.15s ease;
 }
+
 .pagination-arrow[data-c-paginator] {
   color: var(--paragraph-main);
+
   &[data-c-paginator]:hover:not([aria-disabled="true"]) {
     background: var(--card-hover-color);
   }
+
   &[aria-disabled="true"] {
     opacity: 0.35;
     pointer-events: none;
     cursor: default;
   }
 }
+
 .pagination-page[data-c-paginator] {
   &[data-c-paginator]:hover {
     background: var(--card-hover-color);
   }
+
   &[aria-current="page"] {
     font-weight: var(--font-weight-semibold);
     background: var(--footer-color);
     pointer-events: none;
   }
 }
+
 .pagination-ellipsis[data-c-paginator] {
   pointer-events: none;
   color: var(--paragraph-subtitle);

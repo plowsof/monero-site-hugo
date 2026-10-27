@@ -9,6 +9,7 @@
   transition: color 0.15s ease;
   width: fit-content;
   text-decoration: none;
+
   .icon-wrap {
     display: inline-flex;
     align-items: center;
@@ -18,18 +19,23 @@
     border-radius: var(--radius-full);
     background: var(--card-color);
   }
+
   .label {
     white-space: nowrap;
   }
+
   &[data-size="lg"] {
     font-size: var(--font-size-2xl);
     color: var(--monero-orange);
+
     &:hover {
       opacity: 0.8;
     }
   }
+
   &:hover {
     color: var(--monero-orange);
+
     .icon-wrap {
       background: var(--card-hover-color);
     }

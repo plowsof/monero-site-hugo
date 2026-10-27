@@ -3,22 +3,26 @@
   position: relative;
   display: inline-block;
 }
+
 .dropdown-summary[data-c-dropdown] {
   list-style: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   border-radius: var(--radius-full);
+
   &[data-c-dropdown]::-webkit-details-marker {
     display: none;
   }
 }
+
 .caret[data-c-dropdown] {
   display: flex;
   align-items: center;
   margin-inline-start: var(--space-xs);
   transition: transform 0.2s ease;
 }
+
 .dropdown-content[data-c-dropdown] {
   position: absolute;
   inset-block-start: 100%;
@@ -40,10 +44,12 @@
   transform: translateY(-10px);
   transition: transform 0.2s ease;
 }
+
 .dropdown[data-c-dropdown][open] {
   .caret {
     transform: rotate(180deg);
   }
+
   .dropdown-content {
     visibility: visible;
     pointer-events: auto;

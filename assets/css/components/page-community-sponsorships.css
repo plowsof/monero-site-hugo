@@ -10,10 +10,12 @@
   transition:
     background 0.15s ease,
     color 0.15s ease;
+
   &[data-c-page-community-sponsorships]:hover {
     background: var(--card-hover-color);
     color: var(--heading-color);
   }
+
   &[data-c-page-community-sponsorships]::after {
     display: none;
   }

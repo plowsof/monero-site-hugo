@@ -145,11 +145,27 @@ CSS variables can't be used in media queries, so write the numbers.
 - Check color contrast and focus states. `prefers-color-scheme: dark` is already supported via the variables; only write a `@media (prefers-color-scheme: dark)` rule for something the variables don't cover.
 - Use semantic HTML, ARIA attributes where necessary, and ensure keyboard operability (e.g., focus-visible outlines).
 
+## Linting CSS (Stylelint)
+
+CI runs [Stylelint](https://stylelint.io/) with `stylelint-config-standard` on
+`assets/css/` (rules: `.github/linters/.stylelintrc.json`), through the pinned
+Super-Linter container, so nothing needs installing in the repo. To run it, and
+fix what it can, locally with Docker:
+
+```bash
+docker run --rm -e RUN_LOCAL=true -e DEFAULT_BRANCH=hugo -e VALIDATE_ALL_CODEBASE=true \
+  -e VALIDATE_CSS=true -e FIX_CSS=true -e CSS_FILE_NAME=.stylelintrc.json \
+  -e FILTER_REGEX_INCLUDE='assets/css/.*' -e FILTER_REGEX_EXCLUDE='assets/css/base/fonts.css' \
+  -v "$PWD":/tmp/lint ghcr.io/super-linter/super-linter:slim-v9.0.0
+```
+
+Leave out `-e FIX_CSS=true` to only check.
+
 ## PR checklist for styles
 
 - [ ] CSS is in `assets/css/components/<name>.css`, imported in `main.css`, and scoped (or added to `assets/css/base/` with justification).
 - [ ] Uses CSS variables instead of hard-coded colors or sizes.
 - [ ] Works in dark mode and on common breakpoints.
-- [ ] `python3 scripts/check-scoped-css.py` and `python3 scripts/check-css-format.py` pass.
+- [ ] `python3 scripts/check-scoped-css.py` and `python3 scripts/check-css-format.py` pass, and Stylelint (above) is clean.
 
 Links: [How to Make a New Page](how-to-make-a-new-page.md) | [How to Use the UI Library](how-to-use-the-ui-library.md) | [How to Handle Assets and Images](how-to-handle-assets-and-images.md)

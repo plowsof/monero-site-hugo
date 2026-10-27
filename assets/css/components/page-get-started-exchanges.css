@@ -6,6 +6,7 @@ fieldset[data-c-page-get-started-exchanges] {
   min-inline-size: 0;
   display: contents;
 }
+
 .sr-only[data-c-page-get-started-exchanges] {
   position: absolute;
   width: 1px;
@@ -17,6 +18,7 @@ fieldset[data-c-page-get-started-exchanges] {
   white-space: nowrap;
   border: 0;
 }
+
 .filter-toggle[data-c-page-get-started-exchanges] {
   position: fixed;
   top: 0;
@@ -26,6 +28,7 @@ fieldset[data-c-page-get-started-exchanges] {
   opacity: 0;
   pointer-events: none;
 }
+
 #exchange-filters[data-c-page-get-started-exchanges]:has(#filter-fiat:checked)
   ~ .exchanges-wrapper[data-c-page-get-started-exchanges]
   tr[data-highlight~="fiat"],
@@ -41,6 +44,7 @@ fieldset[data-c-page-get-started-exchanges] {
   tr[data-highlight~="user-friendly"] {
   background: rgb(255 152 0 / 10%);
 }
+
 #exchange-filters[data-c-page-get-started-exchanges]:has(#filter-fiat:checked)
   ~ .exchanges-wrapper[data-c-page-get-started-exchanges]
   .filter-option[data-highlight~="fiat"],
@@ -57,6 +61,7 @@ fieldset[data-c-page-get-started-exchanges] {
   background: var(--card-color);
   border-color: var(--monero-orange);
 }
+
 #exchange-filters[data-c-page-get-started-exchanges]:has(
     #filter-easiest:checked
   )
@@ -64,6 +69,7 @@ fieldset[data-c-page-get-started-exchanges] {
   [data-highlight~="user-friendly"]:not(tr, .filter-option) {
   outline: 2px solid var(--monero-orange);
 }
+
 #exchange-filters[data-c-page-get-started-exchanges]:has(
     :checked:not(#filter-none)
   )
@@ -71,6 +77,7 @@ fieldset[data-c-page-get-started-exchanges] {
   .mobile-filter-subtitle {
   display: block;
 }
+
 #exchange-filters[data-c-page-get-started-exchanges]:has(
     #filter-easiest:checked
   )
@@ -86,6 +93,7 @@ fieldset[data-c-page-get-started-exchanges] {
   .filter-text[data-filter="privacy"] {
   display: inline;
 }
+
 @media not (width >= 1200px) {
   #mobile-filter-toggle[data-c-page-get-started-exchanges]:checked
     ~ .exchanges-wrapper[data-c-page-get-started-exchanges]
@@ -95,6 +103,7 @@ fieldset[data-c-page-get-started-exchanges] {
     visibility: visible;
   }
 }
+
 @media (width >= 1200px) {
   #mobile-filter-toggle[data-c-page-get-started-exchanges] {
     display: none;

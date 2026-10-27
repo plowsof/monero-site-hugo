@@ -2,17 +2,20 @@
 .section-tabs[data-c-section-tabs] {
   position: relative;
 }
+
 .tab-input[data-c-section-tabs] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
+
 .tab-labels[data-c-section-tabs] {
   display: flex;
   gap: var(--space-2xs);
   margin-bottom: var(--space-lg);
   border-bottom: 1px solid var(--border-color);
 }
+
 .tab-label[data-c-section-tabs] {
   display: flex;
   align-items: center;
@@ -28,9 +31,11 @@
     color 0.15s ease,
     border-color 0.15s ease;
 }
+
 .tab-label[data-c-section-tabs]:hover {
   color: var(--heading-color);
 }
+
 .tab-count[data-c-section-tabs] {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
@@ -39,18 +44,22 @@
   padding: 0.15em 0.5em;
   border-radius: var(--radius-xl);
 }
+
 .tab-panels[data-c-section-tabs] {
   position: relative;
 }
+
 .tab-panel[data-c-section-tabs] {
   display: none;
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(1):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(1) {
   color: var(--monero-orange);
   border-bottom-color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(1):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(1)
@@ -58,17 +67,20 @@
   background: color-mix(in srgb, var(--monero-orange) 15%, transparent);
   color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(1):checked
   ~ .tab-panels[data-c-section-tabs]
   .tab-panel[data-c-section-tabs]:nth-child(1) {
   display: block;
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(2):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(2) {
   color: var(--monero-orange);
   border-bottom-color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(2):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(2)
@@ -76,17 +88,20 @@
   background: color-mix(in srgb, var(--monero-orange) 15%, transparent);
   color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(2):checked
   ~ .tab-panels[data-c-section-tabs]
   .tab-panel[data-c-section-tabs]:nth-child(2) {
   display: block;
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(3):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(3) {
   color: var(--monero-orange);
   border-bottom-color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(3):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(3)
@@ -94,17 +109,20 @@
   background: color-mix(in srgb, var(--monero-orange) 15%, transparent);
   color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(3):checked
   ~ .tab-panels[data-c-section-tabs]
   .tab-panel[data-c-section-tabs]:nth-child(3) {
   display: block;
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(4):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(4) {
   color: var(--monero-orange);
   border-bottom-color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(4):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(4)
@@ -112,17 +130,20 @@
   background: color-mix(in srgb, var(--monero-orange) 15%, transparent);
   color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(4):checked
   ~ .tab-panels[data-c-section-tabs]
   .tab-panel[data-c-section-tabs]:nth-child(4) {
   display: block;
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(5):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(5) {
   color: var(--monero-orange);
   border-bottom-color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(5):checked
   ~ .tab-labels[data-c-section-tabs]
   .tab-label[data-c-section-tabs]:nth-child(5)
@@ -130,20 +151,24 @@
   background: color-mix(in srgb, var(--monero-orange) 15%, transparent);
   color: var(--monero-orange);
 }
+
 .tab-input[data-c-section-tabs]:nth-of-type(5):checked
   ~ .tab-panels[data-c-section-tabs]
   .tab-panel[data-c-section-tabs]:nth-child(5) {
   display: block;
 }
-@media (max-width: 600px) {
+
+@media (width <= 600px) {
   .tab-labels[data-c-section-tabs] {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
+
   .tab-labels[data-c-section-tabs]::-webkit-scrollbar {
     display: none;
   }
+
   .tab-label[data-c-section-tabs] {
     padding: var(--space-xs) var(--space-sm);
     white-space: nowrap;

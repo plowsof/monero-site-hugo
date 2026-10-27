@@ -1,4 +1,5 @@
 /* Styles for layouts/_partials/pages/blog/blog-content.html */
+
 /* global */
 #blog-content {
   line-height: var(--line-height-body);

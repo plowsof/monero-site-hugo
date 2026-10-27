@@ -12,21 +12,25 @@
   user-select: none;
   flex: 1;
 }
+
 .item-icon[data-c-tocitem] {
   color: var(--monero-orange);
 }
+
 .item-title[data-c-tocitem] {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--heading-color);
   display: block;
 }
+
 .item-subtitle[data-c-tocitem] {
   font-size: var(--font-size-sm);
   color: var(--paragraph-subtitle);
   line-height: var(--line-height-caption);
   margin-top: 0.15rem;
 }
+
 .decoration[data-c-tocitem] {
   display: flex;
   align-items: flex-start;

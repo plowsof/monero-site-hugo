@@ -8,6 +8,7 @@
   width: 100%;
   font-weight: var(--font-weight-semibold);
 }
+
 .letter-nav-link[data-c-letter-nav] {
   padding: var(--space-xs);
   border-radius: var(--radius-sm);
@@ -15,13 +16,16 @@
   text-decoration: none;
   color: var(--text-primary);
   user-select: none;
+
   &[data-c-letter-nav]:hover {
     background: var(--card-color);
   }
 }
+
 @media (width <= 1000px) {
   .letter-nav[data-c-letter-nav] {
     --sticky-offset: 6rem;
+
     flex-flow: column nowrap;
     gap: var(--space-md);
     padding: 0.5rem 1rem 0.5rem 2rem;
@@ -50,17 +54,21 @@
     mask-mode: alpha;
     scrollbar-width: thin;
     scrollbar-color: var(--monero-orange) transparent;
+
     &[data-c-letter-nav]::-webkit-scrollbar {
       width: var(--space-2xs);
     }
+
     &[data-c-letter-nav]::-webkit-scrollbar-track {
       background: transparent;
     }
+
     &[data-c-letter-nav]::-webkit-scrollbar-thumb {
       background: var(--monero-orange);
       border-radius: var(--radius-full);
     }
   }
+
   .letter-nav-link[data-c-letter-nav] {
     padding: var(--space-2xs) var(--space-xs);
     font-size: var(--font-size-sm);

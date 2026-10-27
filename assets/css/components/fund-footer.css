@@ -2,24 +2,29 @@
 .fund-footer[data-c-fund-footer] {
   margin-top: var(--space-xl);
 }
+
 .fund-note[data-c-fund-footer] {
   margin: 0 0 var(--space-md);
   font-size: var(--font-size-sm);
   color: var(--paragraph-subtitle);
   line-height: var(--line-height-body);
 }
+
 .fund-meta[data-c-fund-footer] {
   font-size: var(--font-size-sm);
   color: var(--paragraph-subtitle);
 }
+
 .meta-item[data-c-fund-footer] {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
+
   & strong[data-c-fund-footer] {
     color: var(--paragraph-main);
     font-weight: var(--font-weight-semibold);
   }
+
   & code[data-c-fund-footer] {
     background: var(--card-color);
     padding: 0.2em 0.5em;
@@ -27,6 +32,7 @@
     font-size: 0.9em;
     color: var(--heading-color);
   }
+
   & a[data-c-fund-footer] {
     font-weight: var(--font-weight-medium);
   }

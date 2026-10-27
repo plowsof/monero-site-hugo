@@ -13,19 +13,23 @@
   text-decoration: none;
   user-select: none;
   box-sizing: border-box;
+
   &[data-variant="primary"] {
     background: color-mix(in srgb, var(--monero-orange) 90%, black);
     color: white;
   }
+
   &[data-variant="secondary"] {
     background: var(--secondary-button-color, var(--footer-color));
     color: var(--paragraph-main);
   }
+
   &[data-variant="outline"] {
     background: transparent;
     color: var(--monero-orange);
     border-color: var(--monero-orange);
   }
+
   &[data-c-button]:hover,
   &[data-c-button]:focus-visible {
     opacity: 0.9;

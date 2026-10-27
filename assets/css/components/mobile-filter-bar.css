@@ -7,6 +7,7 @@
   margin-inline: calc(-1 * var(--space-2xl));
   background-color: var(--bg-color);
 }
+
 .mobile-filter-bar[data-c-mobile-filter-bar] {
   display: block;
   padding: var(--space-md);
@@ -15,6 +16,7 @@
   box-shadow: 0 -2px 4px rgb(0 0 0 / 15%);
   cursor: pointer;
 }
+
 .mobile-filter-bar-inner[data-c-mobile-filter-bar] {
   display: flex;
   align-items: center;
@@ -27,19 +29,23 @@
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--heading-color);
+
   &[data-c-mobile-filter-bar]:hover {
     background: var(--card-hover-color);
   }
 }
+
 .mobile-filter-subtitle[data-c-mobile-filter-bar] {
   display: none;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-normal);
   color: var(--paragraph-subtitle);
 }
+
 .filter-text[data-c-mobile-filter-bar] {
   display: none;
 }
+
 @media (width >= 1200px) {
   .mobile-filter-container[data-c-mobile-filter-bar] {
     display: none;

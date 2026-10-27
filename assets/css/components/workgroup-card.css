@@ -4,11 +4,13 @@
   flex-direction: column;
   gap: var(--space-xs);
 }
+
 .card-header[data-c-workgroup-card] {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
 }
+
 .card-icon[data-c-workgroup-card] {
   width: 1.75rem;
   height: 1.75rem;
@@ -20,26 +22,31 @@
   color: var(--monero-orange);
   flex-shrink: 0;
 }
+
 .card-name[data-c-workgroup-card] {
   margin: 0;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   color: var(--heading-color);
 }
+
 .card-action[data-c-workgroup-card] {
   margin: 0;
   font-size: var(--font-size-sm);
   color: var(--text-primary);
   line-height: var(--line-height-body);
 }
+
 .card-best-for[data-c-workgroup-card] {
   margin: 0;
   font-size: var(--font-size-sm);
   color: var(--paragraph-subtitle);
+
   .best-for-label {
     font-weight: var(--font-weight-semibold);
   }
 }
+
 .card-links[data-c-workgroup-card] {
   display: flex;
   align-items: center;
@@ -48,6 +55,7 @@
   padding-top: 0.25rem;
   flex-wrap: wrap;
 }
+
 .matrix-button[data-c-workgroup-card] {
   display: inline-flex;
   align-items: center;
@@ -62,6 +70,7 @@
   transition:
     background 0.15s ease,
     color 0.15s ease;
+
   &[data-c-workgroup-card]:hover {
     background: color-mix(
       in srgb,
@@ -71,28 +80,34 @@
     color: white;
   }
 }
+
 .irc-link[data-c-workgroup-card] {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
   font-size: var(--font-size-sm);
   color: var(--paragraph-subtitle);
+
   a {
     color: var(--text-primary);
     text-decoration: none;
     transition: color 0.15s ease;
+
     &:hover {
       color: var(--paragraph-subtitle);
     }
   }
 }
+
 @media (width <= 400px) {
   .irc-link[data-c-workgroup-card] {
     width: 100%;
+
     &[data-c-workgroup-card]::before {
       content: "IRC: ";
     }
   }
+
   .irc-separator[data-c-workgroup-card] {
     display: none;
   }

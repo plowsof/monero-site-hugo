@@ -5,6 +5,7 @@
   gap: var(--space-md) var(--space-2xl);
   align-items: flex-start;
 }
+
 .letter-heading[data-c-letter-group] {
   display: inline-grid;
   place-items: center;
@@ -18,19 +19,23 @@
   border-radius: 50%;
   user-select: none;
 }
+
 .letter-separator[data-c-letter-group] {
   border: 0;
   border-top: 1px solid var(--border-color);
   margin: var(--space-2xl) 0 var(--space-2xl);
+
   &.first {
     margin-top: 0;
     border-color: transparent;
   }
 }
+
 @media (width <= 1000px) {
   .letter-layout[data-c-letter-group] {
     grid-template-columns: 1fr;
   }
+
   .letter-heading[data-c-letter-group] {
     margin-bottom: var(--space-md);
   }

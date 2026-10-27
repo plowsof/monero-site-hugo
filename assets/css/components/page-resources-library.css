@@ -5,9 +5,11 @@
   max-width: 70ch;
   line-height: var(--line-height-body);
 }
+
 .cheatsheet-intro[data-c-page-resources-library] {
   margin-bottom: var(--space-xl);
 }
+
 .salmon-title[data-c-page-resources-library] {
   margin-block: var(--space-xs);
   font-size: var(--font-size-lg);
