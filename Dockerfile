@@ -18,8 +18,10 @@ RUN set -eu; \
     hugo version
 WORKDIR /app
 
-# Build the site (static)
+# Build the site (static). Coolify passes its variables as build arguments;
+# COOLIFY_PREVIEW, COOLIFY_BRANCH and COOLIFY_REPO turn on the preview banner.
 FROM hugo AS build
+ARG COOLIFY_PREVIEW COOLIFY_BRANCH COOLIFY_REPO SOURCE_COMMIT
 COPY . .
 RUN hugo --gc
 
