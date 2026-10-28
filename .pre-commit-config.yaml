@@ -36,7 +36,7 @@ repos:
   # Biome's official hook: pre-commit installs it with its own Node.js, from
   # the hook's lockfile (nothing in this repo, nothing on your PATH)
   - repo: https://github.com/biomejs/pre-commit
-    rev: 6f163510bd2032c07e076ae67ca310e9d244b100 # v2.6.0
+    rev: f9fccc969fb42a59a17a1a430df9f38851f9b2da # v2.6.3
     hooks:
       - id: biome-check
         name: CSS lint and formatting (Biome)
