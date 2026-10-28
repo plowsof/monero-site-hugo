@@ -45,7 +45,7 @@ repos:
         exclude: ^assets/css/base/fonts\.css$
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: be92e15345b32661abee2e675d765ae79686eb4c # v1.37.0
+    rev: cba56bcde1fdd01c1deb3f945e69764c291a6530 # v1.38.0
     hooks:
       - id: yamllint
         name: YAML lint (yamllint)
