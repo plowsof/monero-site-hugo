@@ -1,6 +1,3 @@
-# Upgrade and redesign of the original hashes.yml workflow by 00-matt, plowsof, binaryFate
-# Remade by: redsh4de for the Monero site redesign project
-# Purpose: Validate Monero download hashes, torrents, and webseeds + create PRs to update download info
 name: "Download Hashes"
 
 on:
