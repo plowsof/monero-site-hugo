@@ -14,7 +14,7 @@ exclude: ^(src/content/|downloads/|public/|layouts/all\.enredirect\.html$)
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c # v6.0.0
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # v5.0.0
     hooks:
       - id: check-merge-conflict
       - id: check-added-large-files
@@ -36,7 +36,7 @@ repos:
   # Biome's official hook: pre-commit installs it with its own Node.js, from
   # the hook's lockfile (nothing in this repo, nothing on your PATH)
   - repo: https://github.com/biomejs/pre-commit
-    rev: f9fccc969fb42a59a17a1a430df9f38851f9b2da # v2.6.3
+    rev: 6f163510bd2032c07e076ae67ca310e9d244b100 # v2.6.0
     hooks:
       - id: biome-check
         name: CSS lint and formatting (Biome)
@@ -45,7 +45,7 @@ repos:
         exclude: ^assets/css/base/fonts\.css$
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: cba56bcde1fdd01c1deb3f945e69764c291a6530 # v1.38.0
+    rev: be92e15345b32661abee2e675d765ae79686eb4c # v1.37.0
     hooks:
       - id: yamllint
         name: YAML lint (yamllint)
