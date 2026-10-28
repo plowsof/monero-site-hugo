@@ -1,6 +1,12 @@
 # https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
 version: 2
 updates:
+  # the hooks' revs in .pre-commit-config.yaml (Biome, yamllint, pre-commit-hooks)
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
