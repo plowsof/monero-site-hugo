@@ -6,6 +6,7 @@ Essential guides for new contributors to get set up.
 
 - [How to Set Up the Development Environment](how-to-set-up-the-development-environment.md)
 - [Understanding the Project Structure](understanding-the-project-structure.md)
+- [How to Serve the Site](how-to-serve-the-site.md) (web server setup, the theme button)
 
 ## Page Development
 
@@ -38,6 +39,7 @@ Guides for creating new content on the site, such as blog posts, Moneropedia ent
 Guides for enhancing existing content.
 
 - [How to link to Moneropedia terms](how-to-link-to-moneropedia-terms.md)
-- [How to add a new download item](how-to-add-a-new-download-item.md)
+- [How to add a new download item](how-to-add-a-new-download-item.md) (wallets, node software)
+- [How to add a library, payment processor or tool](how-to-add-a-library-or-payment-processor.md)
 
 If you need a guide that's not listed here, please create a [issue](https://github.com/monero-project/monero-site/issues) or contact the Website workgroup.
