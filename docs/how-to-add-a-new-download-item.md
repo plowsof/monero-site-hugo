@@ -1,6 +1,6 @@
 # How to Add a New Download Item
 
-This guide explains how to add a new community download item (e.g., wallet, node software) to the Monero website's Downloads > Community section.
+This guide explains how to add a new community download item (e.g., wallet, node software) to the Monero website's Downloads > Community section. Libraries, payment processors and other tools go on the Tools pages instead, see [How to Add a Library, Payment Processor or Tool](how-to-add-a-library-or-payment-processor.md).
 
 ## Files you'll have to edit
 - `src/data/downloads/community.yaml` (where community items are listed)
